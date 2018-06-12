@@ -76,6 +76,7 @@ app.get('/auth/user', (req, res) => {
 })
 
 app.get('/api/chars/:id' , ctrl.getChars)
+app.post('/api/chars', ctrl.addChar)
 
 
 app.listen(SERVER_PORT, () => {

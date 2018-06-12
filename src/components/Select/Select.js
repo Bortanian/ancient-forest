@@ -15,9 +15,9 @@ class Select extends Component {
     }
     componentDidMount() {
         this.props.getUser();
+        this.getUserChars() 
     }
     componentDidUpdate() {
-        this.getUserChars() 
     }
     getUserChars(){
         const {user} = this.props

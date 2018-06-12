@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import axios from 'axios'
 
 class Create extends Component {
     constructor(props) {
@@ -79,6 +80,52 @@ class Create extends Component {
             })
         }
     }
+    incGender() {
+        if (this.state.genderIndex > 0) {
+            this.setState({
+                genderIndex: 0
+            })
+        } else {
+            this.setState({
+                genderIndex: this.state.genderIndex + 1
+            })
+        }
+    }
+    decGender() {
+        if (this.state.genderIndex > 0) {
+            this.setState({
+                genderIndex: 1
+            })
+        } else {
+            this.setState({
+                genderIndex: this.state.genderIndex - 1
+            })
+        }
+    }
+    handleName(val){
+        this.setState({
+            name: val
+        })
+    }
+    randomName() {
+        let gender = this.props.gender[this.state.genderIndex].toLowerCase()
+        axios.get(`https://uinames.com/api/?amount=1&gender=${gender}&region=united states`).then(res => {
+            console.log(res.data)
+            this.setState({
+                name: res.data.name
+            })
+        })
+    }
+    submitCharacter() {
+        axios.post('/api/chars', {
+            name: this.state.name,
+            style: this.state.styleIndex,
+            color: this.state.colorIndex,
+            gender: this.state.genderIndex,
+            charClass: this.state.classIndex,
+            id: this.props.user.id
+        })
+    }
 
     render() {
         return (
@@ -89,8 +136,8 @@ class Create extends Component {
 
                 <section className='name'>
                     <h3>NAME</h3>
-                    <input />
-                    <button>RANDOM</button>
+                    <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}/>
+                    <button onClick={() => this.randomName()}>RANDOM</button>
                 </section>
 
                 <section className='class'>
@@ -116,11 +163,12 @@ class Create extends Component {
 
                 <section className='gender'>
                     <h3>GENDER</h3>
-                    <button></button>
-                    <button></button>
+                    <button onClick={() => this.decGender()}/>
+                    {this.props.gender[this.state.genderIndex]}
+                    <button onClick={() => this.incGender()}/>
                 </section>
 
-                <button>CREATE CHARACTER</button>
+                <button onClick={() => this.submitCharacter()}>CREATE CHARACTER</button>
             </div>
         )
     }
@@ -130,7 +178,8 @@ function mapStateToProps(state) {
         color: state.color,
         style: state.style,
         class: state.class,
-        gender: state.gender
+        gender: state.gender,
+        user: state.user
     }
 }
 
