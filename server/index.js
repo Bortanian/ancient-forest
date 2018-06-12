@@ -75,6 +75,8 @@ app.get('/auth/user', (req, res) => {
     }
 })
 
+app.get('/api/chars/:id' , ctrl.getChars)
+
 
 app.listen(SERVER_PORT, () => {
     console.log(`Server is listening on port: ${SERVER_PORT}`)
