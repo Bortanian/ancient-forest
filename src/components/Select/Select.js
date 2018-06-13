@@ -77,6 +77,9 @@ class Select extends Component {
                     <button>LOGOUT</button>
                 </a>
                 </div>
+                <div>
+                    <h2>SELECT YOUR HERO</h2>
+                </div>
                 {mappedCharacters}
             </div>
         )
