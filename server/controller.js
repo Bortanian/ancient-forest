@@ -20,7 +20,7 @@ module.exports = {
         const db = req.app.get('db')
         const {id} = req.params
 
-        db.delete_char([id])
+        db.delete_hero([id])
         .then( () => res.status(200).send())
         .catch( () => res.status(500).send())
     }
