@@ -3,6 +3,7 @@ import axios from 'axios'
 import { getUser } from '../../ducks/reducer'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import './Select.css'
 
 class Select extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Select extends Component {
         this.props.getUser()
         setTimeout(() => {
             this.getUserChars()
-        }, 1000)
+        }, 100)
     }
     getUserChars() {
         const { user } = this.props
@@ -32,6 +33,13 @@ class Select extends Component {
         axios.delete(`/api/chars/${id}`)
         this.getUserChars()
     }
+    importAll(r) {
+        let images = {};
+        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); 
+        return images
+    });
+        return images
+    }
     // For when I add the three slot limit and remove the create character button
     // selectCharacter(slotVal) {
     //     if (!slotVal) {
@@ -41,16 +49,19 @@ class Select extends Component {
     //     }
     // }
     render() {
+        const images = this.importAll(require.context('../../images', false, /\.(png)$/))
+        console.log(this.state.characters)
         let mappedCharacters = this.state.characters.map((hero, i) => {
             return (
-                <section key={hero.id}>
-                    <div>
+
+                <section key={hero.id} className='select-box'>
+                    <div className='select-contents'>
                         <div>
+                            <img className='preview-img' src={images[hero.preview_img]} alt=''/>
+                            <p>{hero.name} The {this.props.class[hero.class]}</p>
                             <button>PLAY</button>
-                            <p>{hero.name}</p>
-                            <p>{this.props.class[hero.class]}</p>
                         </div>
-                        <button onClick={() => this.deleteChar(hero.id)}>delete</button>
+                        <button onClick={() => this.deleteChar(hero.id)}>DELETE</button>
                     </div>
                 </section>
             )
@@ -58,12 +69,14 @@ class Select extends Component {
 
         return (
             <div>
+                <div className='select-buttons'>
                 <Link to='/create'>
                     <button>CREATE NEW CHARACTER</button>
                 </Link>
                 <a href='http://localhost:4545/auth/logout'>
                     <button>LOGOUT</button>
                 </a>
+                </div>
                 {mappedCharacters}
             </div>
         )

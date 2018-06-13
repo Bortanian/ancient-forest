@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './Create.css'
+
+
 
 
 class Create extends Component {
@@ -12,8 +15,15 @@ class Create extends Component {
             classIndex: 0,
             styleIndex: 0,
             colorIndex: 0,
-            genderIndex: 0
+            genderIndex: 0,
+            images: {},
+            preview: ''
         }
+    }
+    componentDidMount(){
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
 
     incClass() {
@@ -26,6 +36,9 @@ class Create extends Component {
                 classIndex: this.state.classIndex + 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     decClass() {
         if (this.state.classIndex < 1) {
@@ -37,6 +50,9 @@ class Create extends Component {
                 classIndex: this.state.classIndex - 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     incStyle() {
         if (this.state.styleIndex > 1) {
@@ -48,6 +64,9 @@ class Create extends Component {
                 styleIndex: this.state.styleIndex + 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     decStyle() {
         if (this.state.styleIndex < 1) {
@@ -59,6 +78,9 @@ class Create extends Component {
                 styleIndex: this.state.styleIndex - 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     incColor() {
         if (this.state.colorIndex > 3) {
@@ -70,6 +92,9 @@ class Create extends Component {
                 colorIndex: this.state.colorIndex + 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     decColor() {
         if (this.state.colorIndex < 1) {
@@ -81,6 +106,9 @@ class Create extends Component {
                 colorIndex: this.state.colorIndex - 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     incGender() {
         if (this.state.genderIndex > 0) {
@@ -92,9 +120,12 @@ class Create extends Component {
                 genderIndex: this.state.genderIndex + 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
     decGender() {
-        if (this.state.genderIndex > 0) {
+        if (this.state.genderIndex < 1) {
             this.setState({
                 genderIndex: 1
             })
@@ -103,8 +134,11 @@ class Create extends Component {
                 genderIndex: this.state.genderIndex - 1
             })
         }
+        setTimeout(() => {
+            this.checkHero()
+        }, 50)
     }
-    handleName(val){
+    handleName(val) {
         this.setState({
             name: val
         })
@@ -125,7 +159,8 @@ class Create extends Component {
             color: this.state.colorIndex,
             gender: this.state.genderIndex,
             charClass: this.state.classIndex,
-            id: this.props.user.id
+            id: this.props.user.id,
+            preview_img: this.state.preview
         })
     }
     clearFields() {
@@ -137,54 +172,124 @@ class Create extends Component {
             classIndex: 0
         })
     }
+    genderCheck(){
+        if(this.props.gender[this.state.genderIndex] === "Male"){
+            return 'm'
+        } else {
+            return 'f'
+        }
+    }
+    classCheck(){
+        switch (this.props.class[this.state.classIndex]) {
+            case 'Wizard':
+            return 'wiz'
+            case 'Warrior':
+            return 'war'
+            case 'Rogue':
+            return 'rog'
+            default:
+            return;
+        }
+    }
+    styleCheck(){
+        switch (this.props.style[this.state.styleIndex]) {
+            case 'One':
+            return '1'
+            case 'Two':
+            return '2'
+            case 'Three':
+            return '3'
+            default:
+            return ;
+        }
+    }
+    colorCheck(){
+        switch (this.props.color[this.state.colorIndex]) {
+            case 'Blue':
+            return 'b'
+            case 'Red':
+            return 'r'
+            case 'Green':
+            return 'g'
+            case 'Yellow':
+            return 'y'
+            case "Purple":
+            return 'p'
+            default:
+            return;
+        }
+    } 
+    checkHero(){
+        let g = this.genderCheck()
+        let cl = this.classCheck()
+        let s = this.styleCheck()
+        let co = this.colorCheck()
 
+        this.setState({
+            preview: g + cl + s + co + '.png'
+        })
+
+
+    }
+    importAll(r) {
+        let images = {};
+        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); 
+        return images
+    });
+        return images;
+    }
     render() {
+        const images = this.importAll(require.context('../../images', false, /\.(png)$/));
         return (
             <div>
-                <section className='preview'>
-                    <img alt='' />
-                </section>
+                <div>
+                    <section className='preview'>
+                    <img className='preview-image' src={images[this.state.preview]} alt=''/>
+                    </section>
+                </div>
 
-                <section className='name'>
-                    <h3>NAME</h3>
-                    <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}/>
-                    <button onClick={() => this.randomName()}>RANDOM</button>
-                </section>
+                <div>
+                    <section className='name'>
+                        <h3>NAME</h3>
+                        <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)} />
+                        <button onClick={() => this.randomName()}>RANDOM</button>
+                    </section>
 
-                <section className='class'>
-                    <h3>CLASS</h3>
-                    <button onClick={() => this.decClass()} />
-                    {this.props.class[this.state.classIndex]}
-                    <button onClick={() => this.incClass()} />
-                </section>
+                    <section className='class'>
+                        <h3>CLASS</h3>
+                        <button onClick={() => this.decClass()} />
+                        {this.props.class[this.state.classIndex]}
+                        <button onClick={() => this.incClass()} />
+                    </section>
 
-                <section className='style'>
-                    <h3>STYLE</h3>
-                    <button onClick={() => this.decStyle()}/>
-                    {this.props.style[this.state.styleIndex]}
-                    <button onClick={() => this.incStyle()}/>
-                </section>
+                    <section className='style'>
+                        <h3>STYLE</h3>
+                        <button onClick={() => this.decStyle()} />
+                        {this.props.style[this.state.styleIndex]}
+                        <button onClick={() => this.incStyle()} />
+                    </section>
 
-                <section className='color'>
-                    <h3>COLOR</h3>
-                    <button onClick={() => this.decColor()}/>
-                    {this.props.color[this.state.colorIndex]}
-                    <button onClick={() => this.incColor()}/>
-                </section>
+                    <section className='color'>
+                        <h3>COLOR</h3>
+                        <button onClick={() => this.decColor()} />
+                        {this.props.color[this.state.colorIndex]}
+                        <button onClick={() => this.incColor()} />
+                    </section>
 
-                <section className='gender'>
-                    <h3>GENDER</h3>
-                    <button onClick={() => this.decGender()}/>
-                    {this.props.gender[this.state.genderIndex]}
-                    <button onClick={() => this.incGender()}/>
-                </section>
+                    <section className='gender'>
+                        <h3>GENDER</h3>
+                        <button onClick={() => this.decGender()} />
+                        {this.props.gender[this.state.genderIndex]}
+                        <button onClick={() => this.incGender()} />
+                    </section>
+                </div>
 
                 <Link to='/select'>
                     <button onClick={() => this.clearFields()}>CANCEL</button>
                 </Link>
 
                 <Link to='/select'>
-                <button onClick={() => this.submitCharacter()}>CREATE CHARACTER</button>
+                    <button onClick={() => this.submitCharacter()}>CREATE CHARACTER</button>
                 </Link>
             </div>
         )
