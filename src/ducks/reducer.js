@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const initialState = {
     user: {},
-    characters: [],
     color: ['Blue', 'Red', 'Green', 'Yellow', 'Purple'],
     style: ['One', 'Two', 'Three'],
     class: ['Wizard', 'Warrior', 'Rogue'],
@@ -11,7 +10,6 @@ const initialState = {
 }
 
 const GET_USER_DATA = 'GET_USER_DATA'
-const GET_USER_CHARS = 'GET_USER_CHARS'
 
 export function getUser() {
     let userData = axios.get('/auth/user').then(res => res.data)
@@ -24,7 +22,6 @@ export function getUser() {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case GET_USER_DATA + '_FULFILLED':
-            console.log(action.payload)
             return Object.assign({}, state, {user: action.payload})
         default:
             return state;

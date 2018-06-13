@@ -9,23 +9,28 @@ class Select extends Component {
         super(props)
         this.state = {
             slotVal: [true, true, false],
-            characters: [],
+            characters: []
+
         }
         this.getUserChars = this.getUserChars.bind(this)
     }
     componentDidMount() {
-        this.props.getUser();
-        this.getUserChars() 
+        this.props.getUser()
+        setTimeout(() => {
+            this.getUserChars()
+        }, 1000)
     }
-    componentDidUpdate() {
-    }
-    getUserChars(){
-        const {user} = this.props
+    getUserChars() {
+        const { user } = this.props
         axios.get(`/api/chars/${user.auth_id}`).then(res => {
             this.setState({
                 characters: res.data
             })
         })
+    }
+    deleteChar(id) {
+        axios.delete(`/api/chars/${id}`)
+        this.getUserChars()
     }
     // For when I add the three slot limit and remove the create character button
     // selectCharacter(slotVal) {
@@ -38,16 +43,14 @@ class Select extends Component {
     render() {
         let mappedCharacters = this.state.characters.map((hero, i) => {
             return (
-                <section key={i}>
-                    <div> 
-                        {!this.state.slotVal[i] 
-                        ? 'CREATE NEW CHARACTER' :
-                        <div> 
-                        <button>PLAY</button>
-                        <p>{hero.name}</p>
+                <section key={hero.id}>
+                    <div>
+                        <div>
+                            <button>PLAY</button>
+                            <p>{hero.name}</p>
+                            <p>{this.props.class[hero.class]}</p>
                         </div>
-                        }
-                    <button>delete</button>
+                        <button onClick={() => this.deleteChar(hero.id)}>delete</button>
                     </div>
                 </section>
             )
@@ -56,10 +59,10 @@ class Select extends Component {
         return (
             <div>
                 <Link to='/create'>
-                <button>CREATE NEW CHARACTER</button>
+                    <button>CREATE NEW CHARACTER</button>
                 </Link>
                 <a href='http://localhost:4545/auth/logout'>
-                <button>LOGOUT</button>
+                    <button>LOGOUT</button>
                 </a>
                 {mappedCharacters}
             </div>
@@ -70,7 +73,8 @@ class Select extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        class: state.class
     }
 }
 

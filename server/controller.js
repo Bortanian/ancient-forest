@@ -14,6 +14,14 @@ module.exports = {
 
         db.create_hero([name, color, style, gender, charClass, id])
         .then( () => res.status(200).send())
-        .catch( () => res.status(500).send(console.log(err)))
+        .catch( () => res.status(500).send())
+    },
+    deleteChar:(req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.delete_char([id])
+        .then( () => res.status(200).send())
+        .catch( () => res.status(500).send())
     }
 }

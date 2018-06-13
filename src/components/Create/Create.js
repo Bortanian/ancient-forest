@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
 
 class Create extends Component {
     constructor(props) {
@@ -126,6 +128,15 @@ class Create extends Component {
             id: this.props.user.id
         })
     }
+    clearFields() {
+        this.setState({
+            name: '',
+            styleIndex: 0,
+            colorIndex: 0,
+            genderIndex: 0,
+            classIndex: 0
+        })
+    }
 
     render() {
         return (
@@ -168,7 +179,13 @@ class Create extends Component {
                     <button onClick={() => this.incGender()}/>
                 </section>
 
+                <Link to='/select'>
+                    <button onClick={() => this.clearFields()}>CANCEL</button>
+                </Link>
+
+                <Link to='/select'>
                 <button onClick={() => this.submitCharacter()}>CREATE CHARACTER</button>
+                </Link>
             </div>
         )
     }
