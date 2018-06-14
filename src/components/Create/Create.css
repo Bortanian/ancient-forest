@@ -14,3 +14,113 @@
     width: 50px;
     margin: 0 auto;
 }
+.random{
+    background-image: url('./random.png');
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 40px;
+    right: 60px;
+}
+.create-box{
+    background-image: url('./create.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 700px;
+    width: 700px;
+    margin: 0 auto;
+    position: relative;  
+}
+.chains-create{
+    background-image: url('./select-chains.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    padding-top: 100px;
+}
+.preview{
+    position: absolute;
+    top: 56px;
+    left: 103px;
+}
+.preview-image{
+    width: 124px;
+    height: 147px;
+}
+.name-field{
+    position: absolute;
+    height: 100px;
+    width: 350px;
+    display: flex;
+    top: 60px;
+    right: 30px;
+}
+.class-field{
+    position: absolute;
+    display: flex;
+    left: 65px;
+    top: 300px;
+}
+.style-field{
+    position: absolute;
+    display: flex;
+    right: 209px;
+    top:300px;
+}
+.color-field{
+    position: absolute;
+    display: flex;
+    left: 65px;
+    top: 400px;
+}
+.gender-field{
+    position: absolute;
+    display: flex;
+    right: 190px;
+    top: 400px;
+}
+.cancel{
+    background-image: url('./delete.png');
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 80px;
+    right: 250px;
+}
+.submit{
+    background-image: url('./submit.png');
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    bottom: 80px;
+    left: 250px;
+}
+input{
+    border: 0;
+    background-color: #502F33;
+    height: 30px;
+    width: 225px;
+    position: absolute;
+    top: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: rgb(192, 204, 220);
+    margin: 0 10px 0 0;
+}
+.buttons{
+    display: flex;
+    position: absolute;
+    top: 50px;
+}
+h4{
+    box-sizing: border-box;
+    width: 140px;
+}
+.create-title{
+    background-image: url('./title.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 150px;
+    height: 90px;
+}

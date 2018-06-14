@@ -20,7 +20,7 @@ class Create extends Component {
             preview: ''
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         setTimeout(() => {
             this.checkHero()
         }, 50)
@@ -172,54 +172,54 @@ class Create extends Component {
             classIndex: 0
         })
     }
-    genderCheck(){
-        if(this.props.gender[this.state.genderIndex] === "Male"){
+    genderCheck() {
+        if (this.props.gender[this.state.genderIndex] === "Male") {
             return 'm'
         } else {
             return 'f'
         }
     }
-    classCheck(){
+    classCheck() {
         switch (this.props.class[this.state.classIndex]) {
             case 'Wizard':
-            return 'wiz'
+                return 'wiz'
             case 'Warrior':
-            return 'war'
+                return 'war'
             case 'Rogue':
-            return 'rog'
+                return 'rog'
             default:
-            return;
+                return;
         }
     }
-    styleCheck(){
+    styleCheck() {
         switch (this.props.style[this.state.styleIndex]) {
             case 'One':
-            return '1'
+                return '1'
             case 'Two':
-            return '2'
+                return '2'
             case 'Three':
-            return '3'
+                return '3'
             default:
-            return ;
+                return;
         }
     }
-    colorCheck(){
+    colorCheck() {
         switch (this.props.color[this.state.colorIndex]) {
             case 'Blue':
-            return 'b'
+                return 'b'
             case 'Red':
-            return 'r'
+                return 'r'
             case 'Green':
-            return 'g'
+                return 'g'
             case 'Yellow':
-            return 'y'
+                return 'y'
             case "Purple":
-            return 'p'
+                return 'p'
             default:
-            return;
+                return;
         }
-    } 
-    checkHero(){
+    }
+    checkHero() {
         let g = this.genderCheck()
         let cl = this.classCheck()
         let s = this.styleCheck()
@@ -233,64 +233,76 @@ class Create extends Component {
     }
     importAll(r) {
         let images = {};
-        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); 
-        return images
-    });
+        r.keys().map((item, index) => {
+            images[item.replace('./', '')] = r(item);
+            return images
+        });
         return images;
     }
     render() {
         const images = this.importAll(require.context('../../images', false, /\.(png)$/));
         return (
-            <div>
-                <div>
-                    <section className='preview'>
-                    <img className='preview-image' src={images[this.state.preview]} alt=''/>
-                    </section>
+            <div className='chains-create'>
+                <div className='create-box'>
+                    <div>
+                        <section className='preview'>
+                            <img className='preview-image' src={images[this.state.preview]} alt='' />
+                        </section>
+                    </div>
+
+                    <div>
+                        <section className='name-field'>
+                            <h3 className='create-title'>NAME</h3>
+                            <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)} />
+                            <br />
+                            <div className='random' onClick={() => this.randomName()} />
+                        </section>
+
+                        <section className='class-field'>
+                            <h3 className='create-title'>CLASS</h3>
+                            <div className='buttons'>
+                                <div className='left' onClick={() => this.decClass()} />
+                                <h4>{this.props.class[this.state.classIndex]}</h4>
+                                <div className='right' onClick={() => this.incClass()} />
+                            </div>
+                        </section>
+
+                        <section className='style-field'>
+                            <h3 className='create-title'>STYLE</h3>
+                            <div className='buttons'>
+                                <div className='left' onClick={() => this.decStyle()} />
+                                <h4>{this.props.style[this.state.styleIndex]}</h4>
+                                <div className='right' onClick={() => this.incStyle()} />
+                            </div>
+                        </section>
+
+                        <section className='color-field'>
+                            <h3 className='create-title'>COLOR</h3>
+                            <div className='buttons'>
+                                <div className='left' onClick={() => this.decColor()} />
+                                <h4>{this.props.color[this.state.colorIndex]}</h4>
+                                <div className='right' onClick={() => this.incColor()} />
+                            </div>
+                        </section>
+
+                        <section className='gender-field'>
+                            <h3 className='create-title'>GENDER</h3>
+                            <div className='buttons'>
+                                <div className='left' onClick={() => this.decGender()} />
+                                <h4>{this.props.gender[this.state.genderIndex]}</h4>
+                                <div className='right' onClick={() => this.incGender()} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <Link to='/select'>
+                        <div className='cancel' onClick={() => this.clearFields()} />
+                    </Link>
+
+                    <Link to='/select'>
+                        <div className='submit' onClick={() => this.submitCharacter()} />
+                    </Link>
                 </div>
-
-                <div>
-                    <section className='name'>
-                        <h3>NAME</h3>
-                        <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)} />
-                        <button onClick={() => this.randomName()}>RANDOM</button>
-                    </section>
-
-                    <section className='class'>
-                        <h3>CLASS</h3>
-                        <div className='left' onClick={() => this.decClass()} />
-                        {this.props.class[this.state.classIndex]}
-                        <div className='right' onClick={() => this.incClass()} />
-                    </section>
-
-                    <section className='style'>
-                        <h3>STYLE</h3>
-                        <div className='left' onClick={() => this.decStyle()} />
-                        {this.props.style[this.state.styleIndex]}
-                        <div className='right' onClick={() => this.incStyle()} />
-                    </section>
-
-                    <section className='color'>
-                        <h3>COLOR</h3>
-                        <div className='left' onClick={() => this.decColor()} />
-                        {this.props.color[this.state.colorIndex]}
-                        <div className='right' onClick={() => this.incColor()} />
-                    </section>
-
-                    <section className='gender'>
-                        <h3>GENDER</h3>
-                        <div className='left' onClick={() => this.decGender()} />
-                        {this.props.gender[this.state.genderIndex]}
-                        <div className='right' onClick={() => this.incGender()} />
-                    </section>
-                </div>
-
-                <Link to='/select'>
-                    <button onClick={() => this.clearFields()}>CANCEL</button>
-                </Link>
-
-                <Link to='/select'>
-                    <button onClick={() => this.submitCharacter()}>CREATE CHARACTER</button>
-                </Link>
             </div>
         )
     }
