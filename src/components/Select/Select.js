@@ -58,27 +58,27 @@ class Select extends Component {
                     <div className='select-contents'>
                         <div>
                             <img className='preview-img' src={images[hero.preview_img]} alt=''/>
-                            <p>{hero.name} The {this.props.class[hero.class]}</p>
-                            <button>PLAY</button>
+                            <p className='name-title'>{hero.name} The {this.props.class[hero.class]}</p>
+                            <h2 className='play'>PLAY</h2>
                         </div>
-                        <button onClick={() => this.deleteChar(hero.id)}>DELETE</button>
+                        <div className='delete' onClick={() => this.deleteChar(hero.id)}></div>
                     </div>
                 </section>
             )
         })
 
         return (
-            <div>
+            <div className='chains'>
                 <div className='select-buttons'>
                 <Link to='/create'>
-                    <button>CREATE NEW CHARACTER</button>
+                    <h3 className='select-top create'>CREATE</h3>
                 </Link>
                 <a href='http://localhost:4545/auth/logout'>
-                    <button>LOGOUT</button>
+                    <h3 className='select-top logout'>LOGOUT</h3>
                 </a>
                 </div>
                 <div>
-                    <h2>SELECT YOUR HERO</h2>
+                    <h2 className='select-hero'>SELECT YOUR HERO</h2>
                 </div>
                 {mappedCharacters}
             </div>

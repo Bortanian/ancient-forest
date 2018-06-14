@@ -257,30 +257,30 @@ class Create extends Component {
 
                     <section className='class'>
                         <h3>CLASS</h3>
-                        <button onClick={() => this.decClass()} />
+                        <div className='left' onClick={() => this.decClass()} />
                         {this.props.class[this.state.classIndex]}
-                        <button onClick={() => this.incClass()} />
+                        <div className='right' onClick={() => this.incClass()} />
                     </section>
 
                     <section className='style'>
                         <h3>STYLE</h3>
-                        <button onClick={() => this.decStyle()} />
+                        <div className='left' onClick={() => this.decStyle()} />
                         {this.props.style[this.state.styleIndex]}
-                        <button onClick={() => this.incStyle()} />
+                        <div className='right' onClick={() => this.incStyle()} />
                     </section>
 
                     <section className='color'>
                         <h3>COLOR</h3>
-                        <button onClick={() => this.decColor()} />
+                        <div className='left' onClick={() => this.decColor()} />
                         {this.props.color[this.state.colorIndex]}
-                        <button onClick={() => this.incColor()} />
+                        <div className='right' onClick={() => this.incColor()} />
                     </section>
 
                     <section className='gender'>
                         <h3>GENDER</h3>
-                        <button onClick={() => this.decGender()} />
+                        <div className='left' onClick={() => this.decGender()} />
                         {this.props.gender[this.state.genderIndex]}
-                        <button onClick={() => this.incGender()} />
+                        <div className='right' onClick={() => this.incGender()} />
                     </section>
                 </div>
 

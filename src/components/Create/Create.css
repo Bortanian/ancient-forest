@@ -2,3 +2,15 @@
     width: 100px;
     height: 100px;
 }
+.left{
+    background-image: url('./left-button.png');
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+}
+.right{
+    background-image: url('./right-button.png');
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+}

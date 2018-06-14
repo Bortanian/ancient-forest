@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  color: white;
+  color: rgb(192, 204, 220);
 }
 
 .App-logo {
@@ -31,6 +31,7 @@
 
 html{
   background: url('https://steamuserimages-a.akamaihd.net/ugc/100603690261120555/3288949BD5D35B3BCFA9DE0B65FAADE54BBD701C/') no-repeat center center fixed;
+  /* background: url('https://img.itch.zone/aW1hZ2UvMTEyNjM3LzUyMjcwMi5wbmc=/original/Ncg21w.png') no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
