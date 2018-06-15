@@ -65,20 +65,20 @@
 .style-field{
     position: absolute;
     display: flex;
-    right: 209px;
+    right: 150px;
     top:300px;
 }
 .color-field{
     position: absolute;
     display: flex;
     left: 65px;
-    top: 400px;
+    top: 430px;
 }
 .gender-field{
     position: absolute;
     display: flex;
-    right: 190px;
-    top: 400px;
+    right: 150px;
+    top: 430px;
 }
 .cancel{
     background-image: url('./delete.png');
@@ -121,6 +121,11 @@ h4{
     background-image: url('./title.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 150px;
-    height: 90px;
+    width: 175px;
+    height: 70px;
+    position: relative;
+    padding: 14px;
+    box-sizing: border-box;
+    top: -25px;
+    left: 30px;
 }
