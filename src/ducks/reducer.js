@@ -2,6 +2,9 @@ import axios from 'axios'
 
 const initialState = {
     user: {},
+    player:{
+        position:[0,0]
+    },
     color: ['Blue', 'Red', 'Green', 'Yellow', 'Purple'],
     style: ['One', 'Two', 'Three'],
     class: ['Wizard', 'Warrior', 'Rogue'],
