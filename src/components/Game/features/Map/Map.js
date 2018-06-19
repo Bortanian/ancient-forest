@@ -11,6 +11,14 @@ function getTileSprite(type) {
             return 'rock'
         case 6:
             return 'tree'
+        case 7:
+            return 'west-wall'
+        case 8:
+            return 'north-wall'
+        case 9:
+            return 'east-wall'
+        case 10:
+            return 'south-wall'
         default:
             return type
     }
@@ -29,7 +37,7 @@ function MapTile(props) {
 function MapRow(props) {
     return <div className='row'>
         {
-            props.tiles.map(tile => <MapTile tile={tile} />)
+            props.tiles.map((tile, i) => <MapTile key={i} tile={tile} />)
         }
     </div>
 }
@@ -41,13 +49,13 @@ function Map(props) {
                 position: 'relative',
                 top: '0px',
                 left: '0px',
-                width: '800px',
-                height: '400px',
+                width: '880px',
+                height: '560px',
                 border: '4px solid white',
             }}
         >
             {
-                props.tiles.map(row => <MapRow tiles={row} />)
+                props.tiles.map((row, i) => <MapRow key={i} tiles={row} />)
             }
         </div>
     )

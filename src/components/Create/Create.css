@@ -116,6 +116,7 @@ input{
 h4{
     box-sizing: border-box;
     width: 140px;
+    text-align: center;
 }
 .create-title{
     background-image: url('./title.png');
@@ -128,4 +129,5 @@ h4{
     box-sizing: border-box;
     top: -25px;
     left: 30px;
+    text-align: center;
 }

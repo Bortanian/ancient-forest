@@ -11,3 +11,15 @@
 .tree {
     background-image: url('/tiles/tree.png')
 }
+.west-wall{
+    background-color: lightblue
+}
+.north-wall{
+    background-color: lightcoral
+}
+.east-wall{
+    background-color: lightgoldenrodyellow
+}
+.south-wall{
+    background-color: lightslategray
+}

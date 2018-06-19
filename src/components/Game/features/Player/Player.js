@@ -1,9 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import walkSprite from './player_walk.png'
+import walkSprite from './player_walkx2.png'
 import handleMovement from './movement'
 
 function Player(props) {
+    
     return(
         <div
             style={{
@@ -12,8 +13,8 @@ function Player(props) {
                 left: props.position[0],
                 backgroundImage: `url('${walkSprite}')`,
                 backgroundPosition: '0 0',
-                width: '40px',
-                height: '40px',
+                width: '80px',
+                height: '80px',
             }}
         /> 
     )

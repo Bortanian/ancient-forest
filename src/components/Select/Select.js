@@ -19,7 +19,7 @@ class Select extends Component {
         this.props.getUser()
         setTimeout(() => {
             this.getUserChars()
-        }, 100)
+        }, 200)
     }
     getUserChars() {
         const { user } = this.props
@@ -59,7 +59,9 @@ class Select extends Component {
                         <div>
                             <img className='preview-img' src={images[hero.preview_img]} alt=''/>
                             <p className='name-title'>{hero.name} The {this.props.class[hero.class]}</p>
+                            <Link to='/game'>
                             <h2 className='play'>PLAY</h2>
+                            </Link>
                         </div>
                         <div className='delete' onClick={() => this.deleteChar(hero.id)}></div>
                     </div>

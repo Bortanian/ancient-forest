@@ -3,7 +3,7 @@ import axios from 'axios'
 const initialState = {
     user: {},
     player:{
-        position:[0,0]
+        position:[400,240]
     },
     map:{
         tiles: [],

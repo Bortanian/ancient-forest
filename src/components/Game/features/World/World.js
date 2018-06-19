@@ -1,7 +1,7 @@
 import React from 'react'
 import Player from '../Player/Player'
 import Map from '../Map/Map'
-import {tiles} from '../../../../data/map/1'
+import {tiles} from '../../../../data/rooms/1'
 import store from '../../../../ducks/store'
 
 function World(props) {
@@ -12,9 +12,9 @@ function World(props) {
         <div
             style={{
                 position: 'relative',
-                width: '800px',
-                height: '400px',
-                margin: '20px auto',
+                width: '880px',
+                height: '560px',
+                margin: '170px auto',
             }}
         >
             <Map />

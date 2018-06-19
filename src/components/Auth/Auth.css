@@ -8,7 +8,8 @@
     top: 35vh;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 30px
+    padding: 30px;
+    text-align: center;
 }
 .login{
     color: rgb(192, 204, 220);

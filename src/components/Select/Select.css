@@ -47,6 +47,7 @@
     position: absolute;
     right: 153px;
     top: 75px;
+    color: rgb(192, 204, 220); 
 }
 .chains{
     background-image: url('./select-chains.png');
@@ -54,6 +55,7 @@
     background-position: center;
     position: relative;
     height: 100vh;
+    text-align: center;
 }
 .select-hero{
     background-image: url('./select-hero.png');
