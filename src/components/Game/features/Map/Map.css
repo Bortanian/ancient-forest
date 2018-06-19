@@ -23,3 +23,9 @@
 .south-wall{
     background-color: lightslategray
 }
+.transition-south{
+    background-color: grey;
+}
+.transition-north{
+     background-color: coral;
+}

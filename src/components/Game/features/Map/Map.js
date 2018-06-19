@@ -7,6 +7,14 @@ function getTileSprite(type) {
     switch (type) {
         case 0:
             return 'grass'
+        case 1:
+            return 'transition-south'
+        case 2:
+            return 'transition-north'
+        case 3:
+            return 'transition-north'
+        case 4:
+            return 'transition-south'
         case 5:
             return 'rock'
         case 6:

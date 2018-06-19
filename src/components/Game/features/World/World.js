@@ -1,12 +1,12 @@
 import React from 'react'
 import Player from '../Player/Player'
 import Map from '../Map/Map'
-import {tiles} from '../../../../data/rooms/1'
+import {tilesOne} from '../../../../data/rooms'
 import store from '../../../../ducks/store'
 
 function World(props) {
     store.dispatch({ type: 'ADD_TILES', payload: {
-        tiles,
+        tiles: tilesOne,
     }})
     return (
         <div

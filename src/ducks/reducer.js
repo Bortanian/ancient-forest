@@ -33,6 +33,11 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, {player: action.payload})
         case 'ADD_TILES':
             return Object.assign({}, state, {map: action.payload})
+        case 'TRANSITION_ROOM':
+            return Object.assign({}, state, {
+                map: action.payload,
+                player: action.payload
+            })
         default:
             return state;
     }
