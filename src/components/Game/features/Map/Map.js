@@ -27,6 +27,22 @@ function getTileSprite(type) {
             return 'east-wall'
         case 10:
             return 'south-wall'
+        case 11:
+            return 'south-west-gate'
+        case 12:
+            return 'south-east-gate'
+        case 13:
+            return 'north-west-gate'
+        case 14:
+            return 'north-east-gate'
+        case 15:
+            return 'south-west-corner'
+        case 16:
+            return 'south-east-corner'
+        case 17:
+            return 'north-west-corner'
+        case 18:
+            return 'north-east-corner'
         default:
             return type
     }

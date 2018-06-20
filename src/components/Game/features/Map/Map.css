@@ -1,31 +1,84 @@
 .tile {
     display: inline-flex;
-    background-color: lightgreen;
+    background-color: #3D754C;
 }
 .grass{
-    background-color: lightgreen;
+    background-color: #3D754C;
 }
 .rock {
-    background-image: url('/tiles/rock.png')
+    background-image: url('/tiles/tileset2.png');
+    background-position: 80px 158px;
 }
 .tree {
-    background-image: url('/tiles/tree.png')
+    background-image: url('/tiles/tileset.png');
+    background-position: -640px -81px;
 }
 .west-wall{
-    background-color: lightblue
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -320px -320px;
 }
 .north-wall{
-    background-color: lightcoral
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -241px -399px;
 }
 .east-wall{
-    background-color: lightgoldenrodyellow
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -161px -320px;
 }
 .south-wall{
-    background-color: lightslategray
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -240px -241px;
+
 }
 .transition-south{
-    background-color: grey;
+    background-color: #3D754C;
+
 }
 .transition-north{
-     background-color: coral;
+    background-color: #3D754C;
+
+}
+.south-west-gate{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -320px -241px;
+}
+.south-east-gate{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -161px -241px;
+}
+.north-west-gate{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -320px -400px;
+}
+.north-east-gate{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -165px -400px;
+}
+.south-west-corner{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -0px -400px;
+}
+.south-east-corner{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -80px -400px;
+}
+.north-west-corner{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -0px -320px;
+}
+.north-east-corner{
+    background-color: #3D754C;
+    background-image: url('/tiles/tileset.png');
+    background-position: -80px -320px;
 }
