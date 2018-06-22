@@ -1,0 +1,32 @@
+.battle-view{
+    background-color: lightgreen;
+}
+.action{
+    background-color: lightskyblue;
+    width: 880px;
+    height: 400px;
+}
+.lower-action{
+    display: flex;
+}
+.text{
+    background-color: lightcoral;
+    height: 160px;
+    width: 580px;
+}
+.options{
+    background-color: lightsalmon;
+    height: 160px;
+    width: 300px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+}
+.fight{
+    height: 60px;
+    width: 280px;
+    margin: 0 0 10px 0;
+}
+.run{
+    height: 60px;
+    width: 280px;
+}
