@@ -29,7 +29,7 @@ export default function handleMovement(player) {
         const y = newPos[1] / SPRITE_SIZE
         const x = newPos[0] / SPRITE_SIZE
         const nextTile = tiles[y][x]
-        return nextTile < 5
+        return nextTile < 20
     }
 
     function dispatchMove(newPos) {
@@ -73,6 +73,11 @@ export default function handleMovement(player) {
                         tiles: tilesTwo,
                         position: [400, 80]
                     }
+                })
+            case 5:
+                return store.dispatch({
+                    type: 'TRANSITION_BATTLE',
+                    payload: true
                 })
             default:
                 return store.dispatch({

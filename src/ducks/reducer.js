@@ -11,7 +11,8 @@ const initialState = {
     color: ['Blue', 'Red', 'Green', 'Yellow', 'Purple'],
     style: ['One', 'Two', 'Three'],
     class: ['Wizard', 'Warrior', 'Rogue'],
-    gender: ['Male', 'Female']
+    gender: ['Male', 'Female'],
+    battle: false
 
 }
 
@@ -38,6 +39,8 @@ export default function reducer(state = initialState, action) {
                 map: action.payload,
                 player: action.payload
             })
+        case 'TRANSITION_BATTLE':
+            return Object.assign({}, state, {battle: action.payload})
         default:
             return state;
     }

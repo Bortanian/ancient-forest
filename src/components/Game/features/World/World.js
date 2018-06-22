@@ -4,6 +4,7 @@ import Map from '../Map/Map'
 import {tilesOne} from '../../../../data/rooms'
 import store from '../../../../ducks/store'
 
+
 function World(props) {
     store.dispatch({ type: 'ADD_TILES', payload: {
         tiles: tilesOne,

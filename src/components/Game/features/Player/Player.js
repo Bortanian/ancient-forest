@@ -2,10 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import walkSprite from './player_walkx2.png'
 import handleMovement from './movement'
+import {Link} from 'react-router-dom'
 
 function Player(props) {
-    
+    console.log(props.battle)
     return(
+        <div>
         <div
             style={{
                 position: 'absolute',
@@ -17,12 +19,22 @@ function Player(props) {
                 height: '80px',
             }}
         /> 
+        {props.battle ? 
+            <div>
+                <Link to='/battle'>
+                <button >Battle</button>
+                </Link>
+                <button >Cancel</button>
+            </div>
+            : ''}
+        </div>
     )
 }
 
 function mapStateToProps(state){
     return{
         ...state.player,
+        battle: state.battle
     }
 }
 

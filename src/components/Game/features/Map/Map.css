@@ -82,3 +82,24 @@
     background-image: url('/tiles/tileset.png');
     background-position: -80px -320px;
 }
+.battle{
+    background-color: lightblue;
+}
+.boss1{
+    background-color: darkblue;
+}
+.boss2{
+    background-color: darkblue;
+}
+.boss3{
+    background-color: darkblue;
+}
+.boss4{
+    background-color: darkblue;
+}
+.boss5{
+    background-color: darkblue;
+}
+.boss6{
+    background-color: darkblue;
+}

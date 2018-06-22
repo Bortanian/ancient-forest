@@ -16,33 +16,47 @@ function getTileSprite(type) {
         case 4:
             return 'transition-south'
         case 5:
+            return 'battle'
+        case 20:
             return 'rock'
-        case 6:
+        case 21:
             return 'tree'
-        case 7:
+        case 22:
             return 'west-wall'
-        case 8:
+        case 23:
             return 'north-wall'
-        case 9:
+        case 24:
             return 'east-wall'
-        case 10:
+        case 25:
             return 'south-wall'
-        case 11:
+        case 26:
             return 'south-west-gate'
-        case 12:
+        case 27:
             return 'south-east-gate'
-        case 13:
+        case 28:
             return 'north-west-gate'
-        case 14:
+        case 29:
             return 'north-east-gate'
-        case 15:
+        case 30:
             return 'south-west-corner'
-        case 16:
+        case 31:
             return 'south-east-corner'
-        case 17:
+        case 32:
             return 'north-west-corner'
-        case 18:
+        case 33:
             return 'north-east-corner'
+        case 34:
+            return 'boss1'
+        case 35:
+            return 'boss2'
+        case 36:
+            return 'boss3'
+        case 37:
+            return 'boss4'
+        case 38:
+            return 'boss5'
+        case 39:
+            return 'boss6'
         default:
             return type
     }
