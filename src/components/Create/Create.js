@@ -146,7 +146,6 @@ class Create extends Component {
     randomName() {
         let gender = this.props.gender[this.state.genderIndex].toLowerCase()
         axios.get(`https://uinames.com/api/?amount=1&gender=${gender}&region=united states`).then(res => {
-            console.log(res.data)
             this.setState({
                 name: res.data.name
             })
@@ -161,8 +160,64 @@ class Create extends Component {
             charClass: this.state.classIndex,
             id: this.props.user.id,
             preview_img: this.state.preview
+        }).then(res => {
+            console.log(res.data[0].id)
+            if (this.state.classIndex === 0) {
+                axios.post('/api/abilities', {
+                    ability: 1,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 4,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 7,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 10,
+                    id: res.data[0].id
+                })
+            } else if (this.state.classIndex === 1) {
+                axios.post('/api/abilities', {
+                    ability: 2,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 6,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 9,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 10,
+                    id: res.data[0].id
+                })
+            } else if (this.state.classIndex === 2) {
+                axios.post('/api/abilities', {
+                    ability: 3,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 5,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 8,
+                    id: res.data[0].id
+                })
+                axios.post('/api/abilities', {
+                    ability: 10,
+                    id: res.data[0].id
+                })
+            }
         })
+
     }
+
     clearFields() {
         this.setState({
             name: '',

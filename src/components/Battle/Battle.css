@@ -30,3 +30,35 @@
     height: 60px;
     width: 280px;
 }
+.enemy{
+    background-color: lightseagreen;
+    width: 880px;
+    height: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.hero{
+    background-color: lightslategray;
+    width: 880px;
+    height: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+p{
+    margin: 0;
+}
+.action-left{
+    position: absolute;
+
+}
+.action-right{
+    position: absolute;
+    right: 20px;
+}
+.action-image{
+    height: 160px;
+}
+.text{
+    padding: 20px;
+    box-sizing: border-box;
+}

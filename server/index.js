@@ -78,6 +78,10 @@ app.get('/auth/user', (req, res) => {
 app.get('/api/chars/:id' , ctrl.getChars)
 app.post('/api/chars', ctrl.addChar)
 app.delete('/api/chars/:id', ctrl.deleteChar)
+app.get('/api/enemy/:id', ctrl.getEnemy)
+app.get('/api/hero/:id', ctrl.getHero)
+app.post('/api/abilities', ctrl.addAbilities)
+app.delete('/api/abilities/:id', ctrl.deleteAbilities)
 
 
 app.listen(SERVER_PORT, () => {

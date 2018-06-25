@@ -1,2 +1,2 @@
 delete from heroes
-where id = $1
+where id = $1;
