@@ -1,5 +1,7 @@
 import axios from 'axios'
-import {tilesOne} from '../data/rooms'
+import {tilesOne, tilesTwo, tilesThree} from '../data/rooms'
+
+const ROOM_ARRAY = [tilesOne, tilesTwo, tilesThree]
 
 const initialState = {
     user: {},
@@ -7,7 +9,8 @@ const initialState = {
         position:[400,240]
     },
     map:{
-        tiles: tilesOne,
+        tilesIndex:0,
+        tiles: ROOM_ARRAY
     },
     hero: {},
     enemy:{},
@@ -15,13 +18,15 @@ const initialState = {
     style: ['One', 'Two', 'Three'],
     class: ['Wizard', 'Warrior', 'Rogue'],
     gender: ['Male', 'Female'],
-    battle: false
+    battle: false,
+    menu: false
 
 }
 
 const GET_USER_DATA = 'GET_USER_DATA'
 const GET_ENEMY = 'GET_ENEMY'
 const UPDATE_CURRENT_HERO = 'UPDATE_CURRENT_HERO'
+const UPDATE_HERO_POSITION = 'UPDATE_HERO_POSITION'
 
 export function getUser() {
     let userData = axios.get('/auth/user').then(res => res.data)
@@ -43,7 +48,7 @@ export function updateCurrentHero(id){
     let heroData = axios.get(`/api/hero/${id}`).then(res => res.data)
     return {
         type: UPDATE_CURRENT_HERO,
-        payload: heroData
+        payload: heroData,
     }
 }
 
@@ -65,7 +70,17 @@ export default function reducer(state = initialState, action) {
         case GET_ENEMY + '_FULFILLED':
             return Object.assign({}, state, {enemy: action.payload})
         case UPDATE_CURRENT_HERO + '_FULFILLED':
-            return Object.assign({}, state, {hero: action.payload})
+            return Object.assign({}, state, {
+                hero: action.payload
+            })
+        case 'TOGGLE_MENU':
+            return Object.assign({}, state, {menu: action.payload})
+        case UPDATE_HERO_POSITION + '_FULFILLED':
+            console.log(action.payload)
+            return Object.assign({}, state, {
+                map: action.payload,
+                player: action.payload
+            })
         default:
             return state;
     }

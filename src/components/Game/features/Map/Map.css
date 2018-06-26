@@ -55,12 +55,12 @@
 .north-west-gate{
     background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -320px -400px;
+    background-position: -321px -399px;
 }
 .north-east-gate{
     background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -165px -400px;
+    background-position: -164px -399px;
 }
 .south-west-corner{
     background-color: #3D754C;
@@ -102,4 +102,23 @@
 }
 .boss6{
     background-color: darkblue;
+}
+.menu{
+    position: absolute;
+}
+.open{
+    display: flex;
+    justify-content: space-between;
+    background-color: lightseagreen;
+    width: 200px;
+    height: 45px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.menu-item{
+    margin-bottom: 15px;
+}
+.exit{
+    text-decoration: none;
+    color: rgb(192, 204, 220);  
 }

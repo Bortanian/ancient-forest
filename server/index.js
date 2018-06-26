@@ -82,6 +82,10 @@ app.get('/api/enemy/:id', ctrl.getEnemy)
 app.get('/api/hero/:id', ctrl.getHero)
 app.post('/api/abilities', ctrl.addAbilities)
 app.delete('/api/abilities/:id', ctrl.deleteAbilities)
+app.post('/api/map', ctrl.addMap)
+app.delete('/api/map/:id', ctrl.deleteMap)
+app.get('/api/position/:id', ctrl.getPosition)
+app.patch('/api/position/:id', ctrl.savePosition)
 
 
 app.listen(SERVER_PORT, () => {

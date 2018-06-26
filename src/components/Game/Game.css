@@ -1,0 +1,12 @@
+.loading{
+    position: relative;
+    width: 880px;
+    height: 560px;
+    margin: 170px auto;
+    border: 4px solid white;
+    background-color: black;
+}
+.view-port{
+    position: relative;
+    margin: 170px auto;
+}

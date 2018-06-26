@@ -161,7 +161,6 @@ class Create extends Component {
             id: this.props.user.id,
             preview_img: this.state.preview
         }).then(res => {
-            console.log(res.data[0].id)
             if (this.state.classIndex === 0) {
                 axios.post('/api/abilities', {
                     ability: 1,
@@ -177,6 +176,12 @@ class Create extends Component {
                 })
                 axios.post('/api/abilities', {
                     ability: 10,
+                    id: res.data[0].id
+                })
+                axios.post('/api/map', {
+                    tiles: this.props.tilesIndex,
+                    posX: this.props.position[0],
+                    posY: this.props.position[1],
                     id: res.data[0].id
                 })
             } else if (this.state.classIndex === 1) {
@@ -196,6 +201,12 @@ class Create extends Component {
                     ability: 10,
                     id: res.data[0].id
                 })
+                axios.post('/api/map', {
+                    tiles: this.props.tilesIndex,
+                    posX: this.props.position[0],
+                    posY: this.props.position[1],
+                    id: res.data[0].id
+                })
             } else if (this.state.classIndex === 2) {
                 axios.post('/api/abilities', {
                     ability: 3,
@@ -213,7 +224,14 @@ class Create extends Component {
                     ability: 10,
                     id: res.data[0].id
                 })
+                axios.post('/api/map', {
+                    tiles: this.props.tilesIndex,
+                    posX: this.props.position[0],
+                    posY: this.props.position[1],
+                    id: res.data[0].id
+                })
             }
+        
         })
 
     }
@@ -295,6 +313,7 @@ class Create extends Component {
         return images;
     }
     render() {
+        console.log(this.props)
         const images = this.importAll(require.context('../../images', false, /\.(png)$/));
         return (
             <div className='chains-create'>
@@ -368,7 +387,9 @@ function mapStateToProps(state) {
         style: state.style,
         class: state.class,
         gender: state.gender,
-        user: state.user
+        user: state.user,
+        tilesIndex: state.map.tilesIndex,
+        position: state.player.position
     }
 }
 

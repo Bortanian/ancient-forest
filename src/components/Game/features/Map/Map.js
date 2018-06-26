@@ -1,6 +1,9 @@
 import React from 'react'
 import { SPRITE_SIZE } from '../../../../ducks/constants'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import store from '../../../../ducks/store'
+import axios from 'axios'
 import './Map.css'
 
 function getTileSprite(type) {
@@ -81,6 +84,7 @@ function MapRow(props) {
 }
 
 function Map(props) {
+    
     return (
         <div
             style={{
@@ -92,16 +96,52 @@ function Map(props) {
                 border: '4px solid white',
             }}
         >
+        <div className='menu'>
+            {!props.menu ?
+                <div>
+                </div>
+                :
+                <div className='open'>
+                    <div className='menu-item'>
+                        <p onClick={() => handleSave(props)}>SAVE</p>
+                    </div>
+                    <div className='menu-item'>
+                        <Link to='/select'>
+                        <p className='exit' onClick={() => handleExit()}>EXIT</p>
+                        </Link>
+                    </div>  
+                </div>
+            }
+        </div>
             {
-                props.tiles.map((row, i) => <MapRow key={i} tiles={row} />)
+                props.tiles[props.tilesIndex].map((row, i) => <MapRow key={i} tiles={row} />)
             }
         </div>
     )
 }
 
+function handleSave(props){
+    return axios.patch(`/api/position/${props.hero[0].hero_id}`, {
+        pos_x: props.position[0],
+        pos_y: props.position[1],
+        map_id: props.tilesIndex
+    })
+}
+
+function handleExit(){
+    return store.dispatch({
+        type: 'TOGGLE_MENU',
+        payload: false
+    })
+}
+
 function mapStateToProps(state){
     return{
-        tiles: state.map.tiles
+        hero: state.hero,
+        position: state.player.position,
+        tiles: state.map.tiles,
+        tilesIndex: state.map.tilesIndex,
+        menu: state.menu
     }
 }
 

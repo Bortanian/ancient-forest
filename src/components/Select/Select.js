@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { getUser, updateCurrentHero } from '../../ducks/reducer'
+import { getUser, updateCurrentHero} from '../../ducks/reducer'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import './Select.css'
 
 class Select extends Component {
@@ -32,7 +32,11 @@ class Select extends Component {
     deleteChar(id) {
         axios.delete(`/api/chars/${id}`)
         axios.delete(`/api/abilities/${id}`)
+        axios.delete(`/api/map/${id}`)
         this.getUserChars()
+    }
+    handlePlay(id){
+        this.props.updateCurrentHero(id)
     }
     importAll(r) {
         let images = {};
@@ -61,7 +65,7 @@ class Select extends Component {
                             <img className='preview-img' src={images[hero.preview_img]} alt='' />
                             <p className='name-title'>{hero.name} The {this.props.class[hero.class]}</p>
                             <Link to='/game'>
-                                <h2 className='play' onClick={() => this.props.updateCurrentHero(hero.id)}>PLAY</h2>
+                                <h2 className='play' onClick={() => this.handlePlay(hero.id)}>PLAY</h2>
                             </Link>
                         </div>
                         <div className='delete' onClick={() => this.deleteChar(hero.id)}></div>
@@ -93,8 +97,9 @@ class Select extends Component {
 function mapStateToProps(state) {
     return {
         user: state.user,
-        class: state.class
+        class: state.class,
+        hero: state.hero
     }
 }
 
-export default connect(mapStateToProps, { getUser, updateCurrentHero })(Select)
+export default connect(mapStateToProps, { getUser, updateCurrentHero})(Select)

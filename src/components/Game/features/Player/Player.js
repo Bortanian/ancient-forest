@@ -37,6 +37,8 @@ class Player extends Component {
                         position: 'absolute',
                         top: this.props.position[1],
                         left: this.props.position[0],
+                        transitionDuration: '.25s',
+                        transitionProperty: 'top left',
                         backgroundImage: `url('${walkSprite}')`,
                         backgroundPosition: '0 0',
                         width: '80px',

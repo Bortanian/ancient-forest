@@ -55,5 +55,39 @@ module.exports = {
         db.delete_abilities([id])
         .then( () => res.status(200).send())
         .catch( () => res.status(500).send())
+    },
+    addMap:(req, res) => {
+        const db = req.app.get('db')
+        const {tiles, posX, posY, id} = req.body
+
+        db.create_map([tiles, posX, posY, id])
+        .then( () => res.status(200).send())
+        .catch( (err) => res.status(500).send(console.log(err)))
+    },
+    deleteMap:(req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.delete_map([id])
+        .then( () => res.status(200).send())
+        .catch( () => res.status(500).send())
+    },
+    getPosition:(req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.get_position([id])
+        .then( position => res.status(200).send(position))
+        .catch( () => res.status(500).send())
+    },
+    savePosition:(req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        const {pos_x, pos_y, map_id} = req.body
+
+
+        db.save_position([pos_x, pos_y, map_id, id])
+        .then( () => res.status(200).send())
+        .catch( () => res.status(500).send())
     }
 }

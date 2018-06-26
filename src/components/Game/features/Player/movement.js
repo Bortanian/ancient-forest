@@ -1,6 +1,5 @@
 import store from '../../../../ducks/store'
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT } from '../../../../ducks/constants'
-import { tilesOne, tilesTwo, tilesThree } from '../../../../data/rooms'
 
 export default function handleMovement(player) {
 
@@ -25,7 +24,7 @@ export default function handleMovement(player) {
     }
 
     function observeImpassable(oldPos, newPos) {
-        const tiles = store.getState().map.tiles
+        const tiles = store.getState().map.tiles[store.getState().map.tilesIndex]
         const y = newPos[1] / SPRITE_SIZE
         const x = newPos[0] / SPRITE_SIZE
         const nextTile = tiles[y][x]
@@ -33,7 +32,7 @@ export default function handleMovement(player) {
     }
 
     function dispatchMove(newPos) {
-        const tiles = store.getState().map.tiles
+        const tiles = store.getState().map.tiles[store.getState().map.tilesIndex]
         const y = newPos[1] / SPRITE_SIZE
         const x = newPos[0] / SPRITE_SIZE
         const nextTile = tiles[y][x]
@@ -43,7 +42,8 @@ export default function handleMovement(player) {
                 return store.dispatch({
                     type: 'TRANSITION_ROOM',
                     payload: {
-                        tiles: tilesOne,
+                        tilesIndex: 0,
+                        tiles: store.getState().map.tiles,
                         position: [400, 80]
                     }
                 })
@@ -52,7 +52,8 @@ export default function handleMovement(player) {
                 return store.dispatch({
                     type: 'TRANSITION_ROOM',
                     payload: {
-                        tiles: tilesTwo,
+                        tilesIndex: 1,
+                        tiles: store.getState().map.tiles,
                         position: [400, 400]
                     }
                 })
@@ -61,7 +62,8 @@ export default function handleMovement(player) {
                 return store.dispatch({
                     type: 'TRANSITION_ROOM',
                     payload: {
-                        tiles: tilesThree,
+                        tilesIndex: 2,
+                        tiles: store.getState().map.tiles,
                         position: [400, 400]
                     }
                 })
@@ -70,7 +72,8 @@ export default function handleMovement(player) {
                 return store.dispatch({
                     type: 'TRANSITION_ROOM',
                     payload: {
-                        tiles: tilesTwo,
+                        tilesIndex: 1,
+                        tiles: store.getState().map.tiles,
                         position: [400, 80]
                     }
                 })
