@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {tilesOne} from '../data/rooms'
 
 const initialState = {
     user: {},
@@ -6,7 +7,7 @@ const initialState = {
         position:[400,240]
     },
     map:{
-        tiles: [],
+        tiles: tilesOne,
     },
     hero: {},
     enemy:{},
