@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import walkSprite from './player_walkx2.png'
 import handleMovement from './movement'
 // import { Link } from 'react-router-dom'
 import { getEnemy } from '../../../../ducks/reducer'
@@ -29,7 +28,16 @@ class Player extends Component {
             this.props.history.push('/battle')
         }, 1000);
     }
+    importAll(r) {
+        let images = {};
+        r.keys().map((item, index) => {
+            images[item.replace('./', '')] = r(item);
+            return images
+        });
+        return images
+    }
     render() {
+        const images = this.importAll(require.context('../../../../images', false, /\.(png)$/))
         return (
             <div>
                 <div
@@ -39,7 +47,8 @@ class Player extends Component {
                         left: this.props.position[0],
                         transitionDuration: '.25s',
                         transitionProperty: 'top left',
-                        backgroundImage: `url('${walkSprite}')`,
+                        backgroundImage: `url('${images[this.props.hero[0].preview_img]}')`,
+                        backgroundSize: '80px',
                         backgroundPosition: '0 0',
                         width: '80px',
                         height: '80px',
@@ -60,7 +69,8 @@ function mapStateToProps(state) {
     return {
         ...state.player,
         battle: state.battle,
-        enemy: state.enemy
+        enemy: state.enemy,
+        hero: state.hero
     }
 }
 
