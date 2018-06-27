@@ -14,16 +14,16 @@
     padding: 35px;
 }
 .preview-img{
-    width: 111px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
     position: absolute;
-    left: 109px;
-    top: 65px;
+    left: 86px;
+    top: 50px;
 }
 .name-title{
     position: absolute;
     right: 115px;
-    top: 30px;
+    top: 45px;
     font-size: 18px;
 }
 .delete{

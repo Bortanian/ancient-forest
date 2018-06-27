@@ -19,7 +19,8 @@ const initialState = {
     class: ['Wizard', 'Warrior', 'Rogue'],
     gender: ['Male', 'Female'],
     battle: false,
-    menu: false
+    menu: false,
+    playing: false
 
 }
 
@@ -81,6 +82,8 @@ export default function reducer(state = initialState, action) {
                 map: action.payload,
                 player: action.payload
             })
+        case 'TOGGLE_PLAYING':
+            return Object.assign({}, state, {playing: action.payload})
         default:
             return state;
     }

@@ -129,8 +129,12 @@ function handleSave(props){
 }
 
 function handleExit(){
-    return store.dispatch({
+    store.dispatch({
         type: 'TOGGLE_MENU',
+        payload: false
+    })
+    store.dispatch({
+        type: 'TOGGLE_PLAYING',
         payload: false
     })
 }

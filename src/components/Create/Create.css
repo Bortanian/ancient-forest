@@ -41,12 +41,12 @@
 }
 .preview{
     position: absolute;
-    top: 56px;
-    left: 103px;
+    top: 50px;
+    left: 85px;
 }
 .preview-image{
-    width: 124px;
-    height: 147px;
+    width: 160px;
+    height: 160px;
 }
 .name-field{
     position: absolute;

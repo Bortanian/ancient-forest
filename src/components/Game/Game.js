@@ -14,6 +14,7 @@ class Game extends Component {
     }
     componentDidMount() {
         setTimeout(() => {
+            if(!this.props.playing){
             let {map_id, pos_x, pos_y} = this.props.hero[0]
             store.dispatch({
                 type: 'TRANSITION_ROOM',
@@ -23,9 +24,18 @@ class Game extends Component {
                     position: [pos_x, pos_y]
                 }
             })
+            store.dispatch({
+                type: 'TOGGLE_PLAYING',
+                payload: true
+            })
             this.setState({
                 loadingToggle: false
             })
+        } else {
+            this.setState({
+                loadingToggle: false
+            })
+        }
         }, 1000);
     }
     render() {
@@ -42,7 +52,8 @@ class Game extends Component {
 }
 function mapStateToProps(state) {
     return {
-        hero: state.hero
+        hero: state.hero,
+        playing: state.playing
     }
 }
 

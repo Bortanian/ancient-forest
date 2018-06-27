@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import store from '../../ducks/store'
 import { Link } from 'react-router-dom'
-import { tilesOne } from '../../data/rooms'
 import './Battle.css'
 
 class Battle extends Component {
@@ -88,10 +87,9 @@ class Battle extends Component {
                     payload: false
                 })
                 store.dispatch({
-                    type: 'TRANSITION_ROOM',
+                    type: 'TOGGLE_PLAYING',
                     payload: {
-                        tiles: tilesOne,
-                        position: [400, 240]
+                        playing: false
                     }
                 })
             }, 3000);
