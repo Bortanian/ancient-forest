@@ -80,7 +80,7 @@ class Select extends Component {
                     <Link to='/create'>
                         <h3 className='select-top create'>CREATE</h3>
                     </Link>
-                    <a href='http://localhost:4545/auth/logout'>
+                    <a href={process.env.REACT_APP_LOGOUT}>
                         <h3 className='select-top logout'>LOGOUT</h3>
                     </a>
                 </div>
