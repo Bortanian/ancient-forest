@@ -17,7 +17,8 @@ class Create extends Component {
             colorIndex: 0,
             genderIndex: 0,
             images: {},
-            preview: ''
+            preview: '',
+            enterName: false
         }
     }
     componentDidMount() {
@@ -152,87 +153,92 @@ class Create extends Component {
         })
     }
     submitCharacter() {
-        axios.post('/api/chars', {
-            name: this.state.name,
-            style: this.state.styleIndex,
-            color: this.state.colorIndex,
-            gender: this.state.genderIndex,
-            charClass: this.state.classIndex,
-            id: this.props.user.id,
-            preview_img: this.state.preview
-        }).then(res => {
-            if (this.state.classIndex === 0) {
-                axios.post('/api/abilities', {
-                    ability: 1,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 4,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 7,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 10,
-                    id: res.data[0].id
-                })
-                axios.post('/api/map', {
-                    tiles: this.props.tilesIndex,
-                    posX: this.props.position[0],
-                    posY: this.props.position[1],
-                    id: res.data[0].id
-                })
-            } else if (this.state.classIndex === 1) {
-                axios.post('/api/abilities', {
-                    ability: 2,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 6,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 9,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 10,
-                    id: res.data[0].id
-                })
-                axios.post('/api/map', {
-                    tiles: this.props.tilesIndex,
-                    posX: this.props.position[0],
-                    posY: this.props.position[1],
-                    id: res.data[0].id
-                })
-            } else if (this.state.classIndex === 2) {
-                axios.post('/api/abilities', {
-                    ability: 3,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 5,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 8,
-                    id: res.data[0].id
-                })
-                axios.post('/api/abilities', {
-                    ability: 10,
-                    id: res.data[0].id
-                })
-                axios.post('/api/map', {
-                    tiles: this.props.tilesIndex,
-                    posX: this.props.position[0],
-                    posY: this.props.position[1],
-                    id: res.data[0].id
-                })
-            }
-        
-        })
+        if (this.state.name === '') {
+            alert('please enter a name')
+        } else {
+            axios.post('/api/chars', {
+                name: this.state.name,
+                style: this.state.styleIndex,
+                color: this.state.colorIndex,
+                gender: this.state.genderIndex,
+                charClass: this.state.classIndex,
+                id: this.props.user.id,
+                preview_img: this.state.preview
+            }).then(res => {
+                if (this.state.classIndex === 0) {
+                    axios.post('/api/abilities', {
+                        ability: 1,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 4,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 7,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 10,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/map', {
+                        tiles: 0,
+                        posX: 400,
+                        posY: 240,
+                        id: res.data[0].id
+                    })
+                } else if (this.state.classIndex === 1) {
+                    axios.post('/api/abilities', {
+                        ability: 2,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 6,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 9,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 10,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/map', {
+                        tiles: 0,
+                        posX: 400,
+                        posY: 240,
+                        id: res.data[0].id
+                    })
+                } else if (this.state.classIndex === 2) {
+                    axios.post('/api/abilities', {
+                        ability: 3,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 5,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 8,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/abilities', {
+                        ability: 10,
+                        id: res.data[0].id
+                    })
+                    axios.post('/api/map', {
+                        tiles: 0,
+                        posX: 400,
+                        posY: 240,
+                        id: res.data[0].id
+                    })
+                }
+
+            })
+            this.props.history.push('/select')
+        }
 
     }
 
@@ -304,8 +310,8 @@ class Create extends Component {
 
 
     }
-    handleJoke(){
-        axios.get('http://tambal.azurewebsites.net/joke/random').then( res => {
+    handleJoke() {
+        axios.get('http://tambal.azurewebsites.net/joke/random').then(res => {
             console.log(res)
         })
     }
@@ -318,21 +324,20 @@ class Create extends Component {
         return images;
     }
     render() {
-        console.log(this.props)
         const images = this.importAll(require.context('../../images', false, /\.(png)$/));
         return (
             <div className='chains-create'>
                 <div className='create-box'>
                     <div>
                         <section className='preview'>
-                            <img className='preview-image' src={images[this.state.preview]} alt='' />
+                            <img className='preview-image' src={images[this.state.preview]} alt=''/>
                         </section>
                     </div>
 
                     <div>
                         <section className='name-field'>
                             <h3 className='create-title'>NAME</h3>
-                            <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)} />
+                            <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}  maxlength='12'/>
                             <br />
                             <div className='random' onClick={() => this.randomName()} />
                         </section>
@@ -373,15 +378,14 @@ class Create extends Component {
                             </div>
                         </section>
                     </div>
-                    <button onClick={() => this.handleJoke()}>Joke</button>
 
                     <Link to='/select'>
                         <div className='cancel' onClick={() => this.clearFields()} />
                     </Link>
 
-                    <Link to='/select'>
-                        <div className='submit' onClick={() => this.submitCharacter()} />
-                    </Link>
+
+                    <div className='submit' onClick={() => this.submitCharacter()} />
+
                 </div>
             </div>
         )

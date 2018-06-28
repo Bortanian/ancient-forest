@@ -2,8 +2,8 @@
     background-image: url('./select-box.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 270px;
-    width: 700px;
+    height: 311px;
+    width: 793px;
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
@@ -13,12 +13,22 @@
     height: 180px;
     padding: 35px;
 }
-.preview-img{
-    width: 145px;
-    height: 145px;
+.img-border{
     position: absolute;
-    left: 93px;
-    top: 57px;
+    left: 98px;
+    top: 31px;
+    background-image: url('./preview-frame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    width: 178px;
+    height: 226px;
+}
+.preview-img{
+    width: 175px;
+    height: 175px;
+    position: relative;
+    top: 25px;
 }
 .name-title{
     position: absolute;

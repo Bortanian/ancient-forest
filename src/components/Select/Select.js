@@ -62,7 +62,9 @@ class Select extends Component {
                 <section key={hero.id} className='select-box'>
                     <div className='select-contents'>
                         <div>
-                            <img className='preview-img' src={images[hero.preview_img]} alt='' />
+                            <div className='img-border'>
+                            <img className='preview-img' src={images[hero.preview_img]} alt='' />   
+                            </div> 
                             <p className='name-title'>{hero.name} The {this.props.class[hero.class]}</p>
                             <Link to='/game'>
                                 <h2 className='play' onClick={() => this.handlePlay(hero.id)}>PLAY</h2>

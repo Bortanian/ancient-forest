@@ -41,10 +41,18 @@
 }
 .preview{
     position: absolute;
-    top: 50px;
+    background-image: url('./preview-frame.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    height: 203px;
+    width: 160px;
+    top: 40px;
     left: 85px;
 }
 .preview-image{
+    position: absolute;
+    top: 22px;
     width: 160px;
     height: 160px;
 }
