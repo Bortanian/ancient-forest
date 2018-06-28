@@ -4,7 +4,8 @@ import handleMovement from './movement'
 // import { Link } from 'react-router-dom'
 import { getEnemy } from '../../../../ducks/reducer'
 import store from '../../../../ducks/store'
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import './Player.css'
 
 
 
@@ -12,7 +13,7 @@ import {withRouter} from 'react-router-dom'
 class Player extends Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
 
         }
     }
@@ -55,11 +56,14 @@ class Player extends Component {
                     }}
                 />
                 {this.props.battle ?
-                    <div>
-                        <button onClick={() => this.handleBattle()}>Battle</button>
-                        <button onClick={() => this.handleCancel()}>Cancel</button>
+                    <div className='fight-prompt'>
+                        <h3 className='fight-prompt-text'>Pick a fight with this tree?</h3>
+                        <div className='fight-buttons'>
+                            <span className='fight-button' onClick={() => this.handleBattle()}>YOU KNOW IT</span>
+                            <span className='fight-button' onClick={() => this.handleCancel()}>PASS</span>
+                        </div>
                     </div>
-                    : ''}
+                    : <div />}
             </div>
         )
     }

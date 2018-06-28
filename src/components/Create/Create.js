@@ -304,6 +304,11 @@ class Create extends Component {
 
 
     }
+    handleJoke(){
+        axios.get('http://tambal.azurewebsites.net/joke/random').then( res => {
+            console.log(res)
+        })
+    }
     importAll(r) {
         let images = {};
         r.keys().map((item, index) => {
@@ -368,6 +373,7 @@ class Create extends Component {
                             </div>
                         </section>
                     </div>
+                    <button onClick={() => this.handleJoke()}>Joke</button>
 
                     <Link to='/select'>
                         <div className='cancel' onClick={() => this.clearFields()} />

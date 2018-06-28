@@ -105,14 +105,18 @@
 }
 .menu{
     position: absolute;
+    top: -5px;
+    left: -10px;
 }
 .open{
     display: flex;
     justify-content: space-between;
-    background-color: lightseagreen;
-    width: 200px;
-    height: 45px;
-    padding: 15px;
+    background-image: url('./menu.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 304px;
+    height: 60px;
+    padding: 17px;
     box-sizing: border-box;
 }
 .menu-item{
@@ -120,5 +124,11 @@
 }
 .exit{
     text-decoration: none;
-    color: rgb(192, 204, 220);  
+    color: rgb(192, 204, 220);
+    position: absolute;
+    right: 50px;
+}
+.save{
+    position: absolute;
+    left: 50px;
 }

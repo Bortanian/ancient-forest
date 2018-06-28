@@ -14,38 +14,53 @@ class Game extends Component {
     }
     componentDidMount() {
         setTimeout(() => {
-            if(!this.props.playing){
-            let {map_id, pos_x, pos_y} = this.props.hero[0]
-            store.dispatch({
-                type: 'TRANSITION_ROOM',
-                payload: {
-                    tilesIndex: map_id,
-                    tiles: store.getState().map.tiles,
-                    position: [pos_x, pos_y]
-                }
-            })
-            store.dispatch({
-                type: 'TOGGLE_PLAYING',
-                payload: true
-            })
-            this.setState({
-                loadingToggle: false
-            })
-        } else {
-            this.setState({
-                loadingToggle: false
-            })
-        }
+            if (!this.props.playing) {
+                let { map_id, pos_x, pos_y } = this.props.hero[0]
+                store.dispatch({
+                    type: 'TRANSITION_ROOM',
+                    payload: {
+                        tilesIndex: map_id,
+                        tiles: store.getState().map.tiles,
+                        position: [pos_x, pos_y]
+                    }
+                })
+                store.dispatch({
+                    type: 'TOGGLE_PLAYING',
+                    payload: true
+                })
+                this.setState({
+                    loadingToggle: false
+                })
+            } else {
+                this.setState({
+                    loadingToggle: false
+                })
+            }
         }, 1000);
+    }
+    handleMenuToggle() {
+        store.dispatch({
+            type: 'TOGGLE_MENU',
+            payload: !this.props.menu
+        })
     }
     render() {
         return (
             <div className='view-port'>
-                {this.state.loadingToggle ? 
-                    <div className='loading'/>
-                        :
-                <World />
-                }
+                <div className='view-port-border'>
+                    <div className='menu-button'>
+                        <div onClick={() => this.handleMenuToggle()}>MENU</div>
+                    </div>
+                    <div>
+                        {this.state.loadingToggle ?
+                            <div className='loading'>
+                                <h2 className='loading-text'>LOADING</h2>
+                            </div>
+                            :
+                            <World />
+                        }
+                    </div>
+                </div>
             </div>
         )
     }
@@ -53,7 +68,8 @@ class Game extends Component {
 function mapStateToProps(state) {
     return {
         hero: state.hero,
-        playing: state.playing
+        playing: state.playing,
+        menu: state.menu
     }
 }
 

@@ -2,11 +2,41 @@
     position: relative;
     width: 880px;
     height: 560px;
-    margin: 170px auto;
-    border: 4px solid white;
+    margin: 50px auto;
+    top: 71px;
+    border: 4px solid #502f33;
     background-color: black;
+    text-align: center;
+}
+.loading-text{
+    position: relative;
+    top: 240px;
 }
 .view-port{
     position: relative;
-    margin: 170px auto;
+    margin: 50px auto;
+}
+.view-port-border{
+    position: relative;
+    top: 80px;
+    margin: 0 auto;
+    background-image: url('./viewport.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 700px;
+    width: 1010px;
+}
+.menu-button{
+    position: absolute;
+    top: 35px;
+    left: 78px;
+    background-image: url('./menu-button.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 133px;
+    height: 40px;
+    text-align: center;
+    padding: 13px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }

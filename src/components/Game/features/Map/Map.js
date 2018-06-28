@@ -93,7 +93,7 @@ function Map(props) {
                 left: '0px',
                 width: '880px',
                 height: '560px',
-                border: '4px solid white',
+                border: '4px solid rgb(80, 47, 51)',
             }}
         >
         <div className='menu'>
@@ -103,7 +103,7 @@ function Map(props) {
                 :
                 <div className='open'>
                     <div className='menu-item'>
-                        <p onClick={() => handleSave(props)}>SAVE</p>
+                        <p className='save' onClick={() => handleSave(props)}>SAVE</p>
                     </div>
                     <div className='menu-item'>
                         <Link to='/select'>

@@ -99,16 +99,16 @@ class Battle extends Component {
             })
         }
     }
-    handleEnemyAttack(){
+    handleEnemyAttack() {
         let attackIndex = Math.floor(Math.random() * (this.props.enemy.length))
-        let {ability_name, damage, accuracy} = this.props.enemy[attackIndex]
+        let { ability_name, damage, accuracy } = this.props.enemy[attackIndex]
         setTimeout(() => {
             this.setState({
                 fightText: `${this.props.enemy[0].name} used ${ability_name}.`
             })
         }, 200);
         setTimeout(() => {
-            if(Math.floor(Math.random() * 101) <= accuracy){
+            if (Math.floor(Math.random() * 101) <= accuracy) {
                 this.setState({
                     heroHP: this.state.heroHP - damage,
                     fightText: `${this.props.enemy[0].name}'s attack hit!`
@@ -131,71 +131,65 @@ class Battle extends Component {
         const images = this.importAll(require.context('../../images', false, /\.(png)$/))
         return (
             <div>
-                <div className='battle-view'
-                    style={{
-                        position: 'relative',
-                        width: '880px',
-                        height: '560px',
-                        margin: '170px auto',
-                        border: '4px solid white',
-                    }}
-                >
-                    <main className='action'>
-                        <div className='enemy'>
-                            <section className='action-left'>
-                                <p>{this.props.enemy[0].name}</p>
-                                <p>{this.state.enemyHP}</p>
+                <div className='battle-view-border'>
+                    <div className='battle-view'>
+                        <main className='action'>
+                            <div className='enemy'>
+                                <section className='action-left'>
+                                    <p>{this.props.enemy[0].name}</p>
+                                    <p>{this.state.enemyHP}</p>
+                                </section>
+                                <section className='action-right'>
+                                    <p>{this.props.enemy[0].picture}</p>
+                                </section>
+                            </div>
+
+                            <div className='hero'>
+                                <section className='action-right'>
+                                    <p>{this.props.hero[0].name}</p>
+                                    <p>{this.state.heroHP}</p>
+                                </section>
+                                <section className='action-left'>
+                                    <img className='action-image' src={images[this.props.hero[0].preview_img]} alt='' />
+                                </section>
+                            </div>
+                        </main>
+
+                        <div className='lower-action'>
+                            <section className='text'>
+                                {this.state.fightText}
                             </section>
-                            <section className='action-right'>
-                                <p>{this.props.enemy[0].picture}</p>
+
+                            <section className='options'>
+                                {!this.state.fightToggle ?
+                                    <div>
+                                        <button className='fight'
+                                            onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
+                                        >FIGHT</button>
+                                        <Link to='/game'>
+                                            <button className='run' onClick={() => this.runAway()}>RUN</button>
+                                        </Link>
+                                    </div>
+                                    :
+                                    <div>
+                                        <button onClick={() =>
+                                            this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
+                                        >{hero[0].ability_name}</button>
+                                        <button onClick={() =>
+                                            this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
+                                        >{hero[1].ability_name}</button>
+                                        <button onClick={() =>
+                                            this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
+                                        >{hero[2].ability_name}</button>
+                                        <button onClick={() =>
+                                            this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
+                                        >{hero[3].ability_name}</button>
+                                        <button onClick={() => this.handleEnemyAttack()}>Enemy Attack</button>
+                                        <button onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}>Back</button>
+                                    </div>
+                                }
                             </section>
                         </div>
-
-                        <div className='hero'>
-                            <section className='action-right'>
-                                <p>{this.props.hero[0].name}</p>
-                                <p>{this.state.heroHP}</p>
-                            </section>
-                            <section className='action-left'>
-                                <img className='action-image' src={images[this.props.hero[0].preview_img]} alt='' />
-                            </section>
-                        </div>
-                    </main>
-
-                    <div className='lower-action'>
-                        <section className='text'>
-                            {this.state.fightText}
-                        </section>
-
-                        <section className='options'>
-                            {!this.state.fightToggle ?
-                                <div>
-                                    <button className='fight'
-                                        onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
-                                    >FIGHT</button>
-                                    <Link to='/game'>
-                                        <button className='run' onClick={() => this.runAway()}>RUN</button>
-                                    </Link>
-                                </div>
-                                :
-                                <div>
-                                    <button onClick={() =>
-                                        this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
-                                    >{hero[0].ability_name}</button>
-                                    <button onClick={() =>
-                                        this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
-                                    >{hero[1].ability_name}</button>
-                                    <button onClick={() =>
-                                        this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
-                                    >{hero[2].ability_name}</button>
-                                    <button onClick={() =>
-                                        this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
-                                    >{hero[3].ability_name}</button>
-                                    <button onClick={() => this.handleEnemyAttack()}>Enemy Attack</button>
-                                    <button onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}>Back</button>
-                                </div>
-                            }
-                        </section>
                     </div>
                 </div>
             </div>
