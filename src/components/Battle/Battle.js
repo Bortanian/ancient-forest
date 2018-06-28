@@ -136,21 +136,29 @@ class Battle extends Component {
                         <main className='action'>
                             <div className='enemy'>
                                 <section className='action-left'>
-                                    <p>{this.props.enemy[0].name}</p>
-                                    <p>{this.state.enemyHP}</p>
+                                    <div className='healthbar-left'>
+                                        <p>{this.state.enemyHP}</p>
+                                        <p className='name-left'>{this.props.enemy[0].name}</p>
+                                    </div>
                                 </section>
                                 <section className='action-right'>
-                                    <p>{this.props.enemy[0].picture}</p>
+                                    <div className='battle-field bf-right'>
+                                        <p>{this.props.enemy[0].picture}</p>
+                                    </div>
                                 </section>
                             </div>
 
                             <div className='hero'>
                                 <section className='action-right'>
-                                    <p>{this.props.hero[0].name}</p>
-                                    <p>{this.state.heroHP}</p>
+                                    <div className='healthbar-right'>
+                                        <p className='name-right'>{this.props.hero[0].name}</p>
+                                        <p>{this.state.heroHP}</p>
+                                    </div>
                                 </section>
                                 <section className='action-left'>
-                                    <img className='action-image' src={images[this.props.hero[0].preview_img]} alt='' />
+                                    <div className='battle-field bf-left'>
+                                        <img className='action-image' src={images[this.props.hero[0].preview_img]} alt='' />
+                                    </div>
                                 </section>
                             </div>
                         </main>
@@ -172,19 +180,20 @@ class Battle extends Component {
                                     </div>
                                     :
                                     <div>
-                                        <button onClick={() =>
-                                            this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
-                                        >{hero[0].ability_name}</button>
-                                        <button onClick={() =>
-                                            this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
-                                        >{hero[1].ability_name}</button>
-                                        <button onClick={() =>
-                                            this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
-                                        >{hero[2].ability_name}</button>
-                                        <button onClick={() =>
-                                            this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
-                                        >{hero[3].ability_name}</button>
-                                        <button onClick={() => this.handleEnemyAttack()}>Enemy Attack</button>
+                                        <div>
+                                            <button onClick={() =>
+                                                this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
+                                            >{hero[0].ability_name}</button>
+                                            <button onClick={() =>
+                                                this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
+                                            >{hero[1].ability_name}</button>
+                                            <button onClick={() =>
+                                                this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
+                                            >{hero[2].ability_name}</button>
+                                            <button onClick={() =>
+                                                this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
+                                            >{hero[3].ability_name}</button>
+                                        </div>
                                         <button onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}>Back</button>
                                     </div>
                                 }

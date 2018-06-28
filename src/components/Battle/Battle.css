@@ -66,14 +66,62 @@ p{
     position: absolute;
 
 }
+.healthbar-left{
+    background-image: url('./healthbar-left.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 300px;
+    height: 70px;
+    position: relative;
+    top: -20px;
+    left: -20px;
+}
+.name-left{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+}
 .action-right{
     position: absolute;
     right: 20px;
 }
+.healthbar-right{
+    background-image: url('./healthbar-right.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 300px;
+    height: 70px;
+    position: relative;
+    top: 110px;
+    left: 20px;
+}
+.name-right{
+    position: absolute;
+    top: 25px;
+    left: 100px;
+}
 .action-image{
-    height: 160px;
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
 }
 .text{
     padding: 20px;
     box-sizing: border-box;
+}
+.battle-field{
+    background-image: url('./battle-field.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 300px;
+    height: 60px;
+    position: relative;
+    top: 100px;
+    
+}
+.bf-right{
+    right: 100px;
+}
+.bf-left{
+    left: 100px;
 }
