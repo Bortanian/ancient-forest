@@ -17,9 +17,17 @@
     width: 1010px;
 }
 .action{
-    background-color: lightskyblue;
     width: 880px;
     height: 400px;
+}
+.battle-background{
+    position: absolute;
+    background-image: url('http://pixeljoint.com/files/icons/full/woods.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: -220px;
+    width: 880px;
+    height: 405px; 
 }
 .lower-action{
     display: flex;
@@ -95,14 +103,12 @@
     right: 55px;
 }
 .enemy{
-    background-color: lightseagreen;
     width: 880px;
     height: 200px;
     padding: 20px;
     box-sizing: border-box;
 }
 .hero{
-    background-color: lightslategray;
     width: 880px;
     height: 200px;
     padding: 20px;
@@ -121,28 +127,28 @@ p{
     background-image: url('./healthbar-left.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 300px;
-    height: 70px;
+    width: 380px;
+    height: 90px;
     position: relative;
     top: -20px;
     left: -20px;
 }
 .hpcontainter-left{
     position: relative;
-    width: 255px;
-    height: 8px;
-    top: 15px;
-    left: 16px;
+    width: 310px;
+    height:10px;
+    top: 19px;
+    left: 21px;
 }
 .hp-left{
     background-repeat: no-repeat;
     position: relative;
-    height: 8px;
+    height: 10px;
 }
 .name-left{
     position: absolute;
-    top: 30px;
-    left: 15px;
+    top: 42px;
+    left: 19px;
 }
 .action-right{
     position: absolute;
@@ -152,52 +158,50 @@ p{
     background-image: url('./healthbar-right.png');
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 300px;
-    height: 70px;
+    width: 380px;
+    height: 89px;
     position: relative;
-    top: 110px;
+    top: 94px;
     left: 20px;
 }
 .hpcontainer-right{
     position: relative;
     margin: 0;
-    width: 255px;
-    top: 47px;
-    right: -29px;
+    width: 310px;
+    top: 60px;
+    right: -49px;
 }
 .hp-right{
     background-repeat: no-repeat;
     position: relative;
-    height: 9px;
+    height: 10px;
     float: right;
 }
 .name-right{
     position: absolute;
-    top: 23px;
-    left: 100px;
+    top: 33px;
+    left: 130px;
 }
 .action-image{
     position: absolute;
-    bottom: 20px;
-    left: 60px;
+    bottom: 38px;
+    left: 66px;
 }
 .text{
     padding: 20px;
     box-sizing: border-box;
 }
 .battle-field{
-    background-image: url('./battle-field.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
     width: 300px;
-    height: 60px;
+    height: 80px;
     position: relative;
-    top: 100px;
+    top: 95px;
     
 }
 .bf-right{
-    right: 100px;
+    right: 59px;
+    top: 150px;
 }
 .bf-left{
-    left: 100px;
+    left: 60px;
 }

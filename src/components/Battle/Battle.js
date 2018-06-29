@@ -63,6 +63,7 @@ class Battle extends Component {
     checkVictory() {
         if (this.state.enemyHP <= 0) {
             this.setState({
+                enemyHP: 0,
                 fightText: `${this.props.enemy[0].name} has been defeated!`
             })
             setTimeout(() => {
@@ -84,6 +85,7 @@ class Battle extends Component {
     checkFailure() {
         if (this.state.heroHP <= 0) {
             this.setState({
+                heroHP: 0,
                 fightText: `${this.props.hero[0].name} has been defeated!`
             })
             setTimeout(() => {
@@ -141,6 +143,7 @@ class Battle extends Component {
                 <div className='battle-view-border'>
                     <div className='battle-view'>
                         <main className='action'>
+                            <div className='battle-background'/>
                             <div className='enemy'>
                                 <section className='action-left'>
                                     <div className='healthbar-left'>
@@ -151,7 +154,7 @@ class Battle extends Component {
                                                     style={{
                                                         backgroundImage: `url(${hpCapLeft})`,
                                                         backgroundSize: '100%',
-                                                        width: '255px',
+                                                        width: '323px',
                                                     }}
                                                 />
                                                 :
@@ -161,7 +164,7 @@ class Battle extends Component {
                                                         backgroundRepeat: 'repeat-x',
                                                         width: `${this.state.enemyHP}%`,
                                                         transitionProperty: 'width',
-                                                        transitionDelay: '.25s'
+                                                        transitionDuration: '.25s'
                                                     }}
                                                 />
                                             }
@@ -186,7 +189,7 @@ class Battle extends Component {
                                                     style={{
                                                         backgroundImage: `url(${hpCapRight})`,
                                                         backgroundSize: '100%',
-                                                        width: '255px',
+                                                        width: '323px',
                                                     }}
                                                 />
                                                 :
@@ -196,7 +199,7 @@ class Battle extends Component {
                                                         width: `${this.state.heroHP}%`,
                                                         backgroundRepeat: 'repeat-x',
                                                         transitionProperty: 'width',
-                                                        transitionDelay: '.25s'
+                                                        transitionDuration: '.25s'
                                                     }}
                                                 />
                                             }
