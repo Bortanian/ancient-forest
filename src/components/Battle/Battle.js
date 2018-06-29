@@ -9,6 +9,7 @@ class Battle extends Component {
         super(props)
         this.state = {
             fightToggle: false,
+            actionToggle: false,
             enemyHP: null,
             heroHP: null,
             fightText: ''
@@ -32,7 +33,9 @@ class Battle extends Component {
     handleAttack(name, damage, accuracy) {
         setTimeout(() => {
             this.setState({
-                fightText: `${this.props.hero[0].name} used ${name}.`
+                fightText: `${this.props.hero[0].name} used ${name}.`,
+                fightToggle: false,
+                actionToggle: true
             })
         }, 200);
         setTimeout(() => {
@@ -95,6 +98,7 @@ class Battle extends Component {
             }, 3000);
         } else {
             this.setState({
+                actionToggle: false,
                 fightText: `What will ${this.props.hero[0].name} do?`
             })
         }
@@ -169,9 +173,9 @@ class Battle extends Component {
                                     <section className='text'>
                                         {this.state.fightText}
                                     </section>
-
+                                    {!this.state.actionToggle ?
                                     <section className='options'>
-
+                                        
                                         <div className='options-buttons'>
                                             <h4 className='fight'
                                                 onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
@@ -181,6 +185,10 @@ class Battle extends Component {
                                             </Link>
                                         </div>
                                     </section>
+                                    :
+                                    <div>
+                                    </div>
+                                    }
                                 </div>
                                 :
                                 <div>
