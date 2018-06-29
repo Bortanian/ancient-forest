@@ -83,7 +83,10 @@ class Select extends Component {
                         <h3 className='select-top create'>CREATE</h3>
                     </Link>
                     <a href={process.env.REACT_APP_LOGOUT}>
-                        <h3 className='select-top logout'>LOGOUT</h3>
+                        <div className='select-top right-logout'>
+                        <h3 className='logout'>LOGOUT</h3>
+                        <img className='user-icon' src={`https://avatars.dicebear.com/v2/identicon/${this.props.user.id}.svg`} alt=''/>   
+                        </div> 
                     </a>
                 </div>
                 <div>

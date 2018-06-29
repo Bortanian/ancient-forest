@@ -164,40 +164,43 @@ class Battle extends Component {
                         </main>
 
                         <div className='lower-action'>
-                            <section className='text'>
-                                {this.state.fightText}
-                            </section>
+                            {!this.state.fightToggle ?
+                                <div>
+                                    <section className='text'>
+                                        {this.state.fightText}
+                                    </section>
 
-                            <section className='options'>
-                                {!this.state.fightToggle ?
-                                    <div>
-                                        <button className='fight'
-                                            onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
-                                        >FIGHT</button>
-                                        <Link to='/game'>
-                                            <button className='run' onClick={() => this.runAway()}>RUN</button>
-                                        </Link>
-                                    </div>
-                                    :
-                                    <div>
-                                        <div>
-                                            <button onClick={() =>
-                                                this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
-                                            >{hero[0].ability_name}</button>
-                                            <button onClick={() =>
-                                                this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
-                                            >{hero[1].ability_name}</button>
-                                            <button onClick={() =>
-                                                this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
-                                            >{hero[2].ability_name}</button>
-                                            <button onClick={() =>
-                                                this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
-                                            >{hero[3].ability_name}</button>
+                                    <section className='options'>
+
+                                        <div className='options-buttons'>
+                                            <h4 className='fight'
+                                                onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
+                                            >FIGHT</h4>
+                                            <Link to='/game'>
+                                                <h4 className='run' onClick={() => this.runAway()}>RUN</h4>
+                                            </Link>
                                         </div>
-                                        <button onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}>Back</button>
+                                    </section>
+                                </div>
+                                :
+                                <div>
+                                    <div className='abilities'>
+                                        <h4 className='ability-buttons' onClick={() =>
+                                            this.handleAttack(hero[0].ability_name, hero[0].damage, hero[0].accuracy)}
+                                        >{hero[0].ability_name}</h4>
+                                        <h4 className='ability-buttons' onClick={() =>
+                                            this.handleAttack(hero[1].ability_name, hero[1].damage, hero[1].accuracy)}
+                                        >{hero[1].ability_name}</h4>
+                                        <h4 className='ability-buttons' onClick={() =>
+                                            this.handleAttack(hero[2].ability_name, hero[2].damage, hero[2].accuracy)}
+                                        >{hero[2].ability_name}</h4>
+                                        <h4 className='ability-buttons' onClick={() =>
+                                            this.handleAttack(hero[3].ability_name, hero[3].damage, hero[3].accuracy)}
+                                        >{hero[3].ability_name}</h4>
                                     </div>
-                                }
-                            </section>
+                                    <div className='ability-back' onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}></div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

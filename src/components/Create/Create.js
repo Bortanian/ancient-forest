@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom'
 import './Create.css'
 
 
-
-
 class Create extends Component {
     constructor(props) {
         super(props)
@@ -26,7 +24,6 @@ class Create extends Component {
             this.checkHero()
         }, 50)
     }
-
     incClass() {
         if (this.state.classIndex > 1) {
             this.setState({
@@ -310,11 +307,6 @@ class Create extends Component {
 
 
     }
-    handleJoke() {
-        axios.get('http://tambal.azurewebsites.net/joke/random').then(res => {
-            console.log(res)
-        })
-    }
     importAll(r) {
         let images = {};
         r.keys().map((item, index) => {
@@ -337,7 +329,7 @@ class Create extends Component {
                     <div>
                         <section className='name-field'>
                             <h3 className='create-title'>NAME</h3>
-                            <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}  maxlength='12'/>
+                            <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}  maxLength='12'/>
                             <br />
                             <div className='random' onClick={() => this.randomName()} />
                         </section>
@@ -382,7 +374,6 @@ class Create extends Component {
                     <Link to='/select'>
                         <div className='cancel' onClick={() => this.clearFields()} />
                     </Link>
-
 
                     <div className='submit' onClick={() => this.submitCharacter()} />
 

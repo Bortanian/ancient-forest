@@ -91,6 +91,7 @@ app.get('/api/position/:id', ctrl.getPosition)
 app.patch('/api/position/:id', ctrl.savePosition)
 
 
+
 app.listen(SERVER_PORT, () => {
     console.log(`Server is listening on port: ${SERVER_PORT}`)
 })

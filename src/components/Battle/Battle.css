@@ -23,27 +23,76 @@
 }
 .lower-action{
     display: flex;
+    position: relative;
+    background-image: url('./fight-input.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 880px;
+    height: 160px;
 }
 .text{
-    background-color: lightcoral;
-    height: 160px;
-    width: 580px;
+    height: 120px;
+    width: 400px;
+    position: relative;
+    top: 20px;
+    left: 40px;
 }
 .options{
-    background-color: lightsalmon;
     height: 160px;
     width: 300px;
     padding: 15px 10px;
     box-sizing: border-box;
 }
+.options-buttons{
+    display: flex;
+    justify-content: space-between;
+    width:410px;
+    position: absolute;
+    top: 29px;
+    right: 55px;
+}
 .fight{
+    background-image: url('./option-button.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
     height: 60px;
-    width: 280px;
-    margin: 0 0 10px 0;
+    width: 200px;
+    padding: 22px;
 }
 .run{
+    background-image: url('./option-button.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
     height: 60px;
-    width: 280px;
+    width: 200px;
+    padding: 22px;
+    color: rgb(192, 204, 220);
+}
+.abilities{
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    height: 100px;
+    padding: 40px;
+}
+.ability-buttons{
+    background-image: url('./title.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 190px;
+    height: 48px;
+    padding: 17px 15px;
+    font-size: 12px;
+}
+.ability-back{
+    background-image: url('./delete.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 25px;
+    width:25px;
+    position: absolute;
+    top: 30px;
+    right: 55px;
 }
 .enemy{
     background-color: lightseagreen;
@@ -97,7 +146,7 @@ p{
 }
 .name-right{
     position: absolute;
-    top: 25px;
+    top: 23px;
     left: 100px;
 }
 .action-image{

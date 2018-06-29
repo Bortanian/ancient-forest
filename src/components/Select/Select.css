@@ -56,7 +56,7 @@
     box-sizing: border-box;
     position: absolute;
     right: 153px;
-    top: 75px;
+    top: 90px;
     color: rgb(192, 204, 220); 
 }
 .chains{
@@ -94,9 +94,21 @@
     top: 15px;
     right: 250px;
 }
-.logout{
+.right-logout{
     margin: 0 auto;
     position: relative;
     top: -45px;
     left: 250px;
+}
+.user-icon{
+    width: 25px;
+    position: absolute;
+    right: 30px;
+    top: 18px;
+    border: 2px solid black;
+}
+.logout{
+    position: absolute;
+    top: 3px;
+    left: 30px;
 }
