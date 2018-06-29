@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import store from '../../ducks/store'
 import { Link } from 'react-router-dom'
 import './Battle.css'
+import hpCapRight from './hpcap-right.png'
+import hpCapLeft from './hpcap-left.png'
+import health from './health.png'
 
 class Battle extends Component {
     constructor(props) {
@@ -141,7 +144,28 @@ class Battle extends Component {
                             <div className='enemy'>
                                 <section className='action-left'>
                                     <div className='healthbar-left'>
-                                        <p>{this.state.enemyHP}</p>
+                                        <div />
+                                        <div className='hpcontainter-left'>
+                                            {this.state.enemyHP === 100 ?
+                                                <div className='hp-left'
+                                                    style={{
+                                                        backgroundImage: `url(${hpCapLeft})`,
+                                                        backgroundSize: '100%',
+                                                        width: '255px',
+                                                    }}
+                                                />
+                                                :
+                                                <div className='hp-left'
+                                                    style={{
+                                                        backgroundImage: `url(${health})`,
+                                                        backgroundRepeat: 'repeat-x',
+                                                        width: `${this.state.enemyHP}%`,
+                                                        transitionProperty: 'width',
+                                                        transitionDelay: '.25s'
+                                                    }}
+                                                />
+                                            }
+                                        </div>
                                         <p className='name-left'>{this.props.enemy[0].name}</p>
                                     </div>
                                 </section>
@@ -156,7 +180,27 @@ class Battle extends Component {
                                 <section className='action-right'>
                                     <div className='healthbar-right'>
                                         <p className='name-right'>{this.props.hero[0].name}</p>
-                                        <p>{this.state.heroHP}</p>
+                                        <div className='hpcontainer-right'>
+                                            {this.state.heroHP === 100 ?
+                                                <div className='hp-right'
+                                                    style={{
+                                                        backgroundImage: `url(${hpCapRight})`,
+                                                        backgroundSize: '100%',
+                                                        width: '255px',
+                                                    }}
+                                                />
+                                                :
+                                                <div className='hp-right'
+                                                    style={{
+                                                        backgroundImage: `url(${health})`,
+                                                        width: `${this.state.heroHP}%`,
+                                                        backgroundRepeat: 'repeat-x',
+                                                        transitionProperty: 'width',
+                                                        transitionDelay: '.25s'
+                                                    }}
+                                                />
+                                            }
+                                        </div>
                                     </div>
                                 </section>
                                 <section className='action-left'>
@@ -174,20 +218,20 @@ class Battle extends Component {
                                         {this.state.fightText}
                                     </section>
                                     {!this.state.actionToggle ?
-                                    <section className='options'>
-                                        
-                                        <div className='options-buttons'>
-                                            <h4 className='fight'
-                                                onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
-                                            >FIGHT</h4>
-                                            <Link to='/game'>
-                                                <h4 className='run' onClick={() => this.runAway()}>RUN</h4>
-                                            </Link>
+                                        <section className='options'>
+
+                                            <div className='options-buttons'>
+                                                <h4 className='fight'
+                                                    onClick={() => this.setState({ fightToggle: !this.state.fightToggle })}
+                                                >FIGHT</h4>
+                                                <Link to='/game'>
+                                                    <h4 className='run' onClick={() => this.runAway()}>RUN</h4>
+                                                </Link>
+                                            </div>
+                                        </section>
+                                        :
+                                        <div>
                                         </div>
-                                    </section>
-                                    :
-                                    <div>
-                                    </div>
                                     }
                                 </div>
                                 :
