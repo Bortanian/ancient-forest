@@ -10,6 +10,7 @@ class Create extends Component {
         super(props)
         this.state = {
             name: '',
+            alert: '',
             classIndex: 0,
             styleIndex: 0,
             colorIndex: 0,
@@ -151,7 +152,14 @@ class Create extends Component {
     }
     submitCharacter() {
         if (this.state.name === '') {
-            alert('please enter a name')
+            this.setState({
+                alert: 'please enter a name'
+            })
+            setTimeout(() => {
+                this.setState({
+                    alert: ''
+                })
+            }, 3000);
         } else {
             axios.post('/api/chars', {
                 name: this.state.name,
@@ -332,6 +340,10 @@ class Create extends Component {
                             <input value={this.state.name} onChange={(e) => this.handleName(e.target.value)}  maxLength='12'/>
                             <br />
                             <div className='random' onClick={() => this.randomName()} />
+                        </section>
+
+                        <section className='alert'>
+                            <h3>{this.state.alert}</h3>
                         </section>
 
                         <section className='class-field'>

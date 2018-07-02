@@ -139,3 +139,8 @@ h4{
     left: 30px;
     text-align: center;
 }
+.alert{
+    position: absolute;
+    right: 50px;
+    top: 140px;
+}
