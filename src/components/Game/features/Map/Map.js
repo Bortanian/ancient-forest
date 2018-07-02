@@ -1,7 +1,7 @@
 import React from 'react'
 import { SPRITE_SIZE } from '../../../../ducks/constants'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import store from '../../../../ducks/store'
 import axios from 'axios'
 import './Map.css'
@@ -60,6 +60,10 @@ function getTileSprite(type) {
             return 'boss5'
         case 39:
             return 'boss6'
+        case 40:
+            return 'boss7'
+        case 41:
+            return 'boss9'
         default:
             return type
     }
@@ -84,7 +88,7 @@ function MapRow(props) {
 }
 
 function Map(props) {
-    
+
     return (
         <div
             style={{
@@ -96,23 +100,23 @@ function Map(props) {
                 border: '4px solid rgb(80, 47, 51)',
             }}
         >
-        <div className='menu'>
-            {!props.menu ?
-                <div>
-                </div>
-                :
-                <div className='open'>
-                    <div className='menu-item'>
-                        <p className='save' onClick={() => handleSave(props)}>SAVE</p>
+            <div className='menu'>
+                {!props.menu ?
+                    <div>
                     </div>
-                    <div className='menu-item'>
-                        <Link to='/select'>
-                        <p className='exit' onClick={() => handleExit()}>EXIT</p>
-                        </Link>
-                    </div>  
-                </div>
-            }
-        </div>
+                    :
+                    <div className='open'>
+                        <div className='menu-item'>
+                            <p className='save' onClick={() => handleSave(props)}>SAVE</p>
+                        </div>
+                        <div className='menu-item'>
+                            <Link to='/select'>
+                                <p className='exit' onClick={() => handleExit()}>EXIT</p>
+                            </Link>
+                        </div>
+                    </div>
+                }
+            </div>
             {
                 props.tiles[props.tilesIndex].map((row, i) => <MapRow key={i} tiles={row} />)
             }
@@ -120,15 +124,29 @@ function Map(props) {
     )
 }
 
-function handleSave(props){
-    return axios.patch(`/api/position/${props.hero[0].hero_id}`, {
+function handleSave(props) {
+    axios.patch(`/api/position/${props.hero[0].hero_id}`, {
         pos_x: props.position[0],
         pos_y: props.position[1],
         map_id: props.tilesIndex
     })
+    store.dispatch({
+        type: 'SAVE_MESSAGE',
+        payload: true
+    })
+    store.dispatch({
+        type: 'TOGGLE_MENU',
+        payload: false
+    })
+    setTimeout(() => {
+        store.dispatch({
+            type: 'SAVE_MESSAGE',
+            payload: false
+        })
+    }, 2000);
 }
 
-function handleExit(){
+function handleExit() {
     store.dispatch({
         type: 'TOGGLE_MENU',
         payload: false
@@ -139,8 +157,8 @@ function handleExit(){
     })
 }
 
-function mapStateToProps(state){
-    return{
+function mapStateToProps(state) {
+    return {
         hero: state.hero,
         position: state.player.position,
         tiles: state.map.tiles,

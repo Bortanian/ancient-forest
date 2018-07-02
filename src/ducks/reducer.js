@@ -20,7 +20,8 @@ const initialState = {
     gender: ['Male', 'Female'],
     battle: false,
     menu: false,
-    playing: false
+    playing: false,
+    savedMessage: false
 
 }
 
@@ -84,6 +85,8 @@ export default function reducer(state = initialState, action) {
             })
         case 'TOGGLE_PLAYING':
             return Object.assign({}, state, {playing: action.payload})
+        case 'SAVE_MESSAGE':
+            return Object.assign({}, state, {savedMessage: action.payload})
         default:
             return state;
     }

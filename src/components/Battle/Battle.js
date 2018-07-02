@@ -174,7 +174,7 @@ class Battle extends Component {
                                 </section>
                                 <section className='action-right'>
                                     <div className='battle-field bf-right'>
-                                        <p>{this.props.enemy[0].picture}</p>
+                                    <img className='action-image-enemy' src={images[this.props.enemy[0].picture]} alt='' />
                                     </div>
                                 </section>
                             </div>

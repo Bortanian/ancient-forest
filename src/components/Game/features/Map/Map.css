@@ -6,32 +6,27 @@
     background-color: #3D754C;
 }
 .rock {
-    background-image: url('/tiles/tileset2.png');
-    background-position: 80px 158px;
+    background-image: url('/tiles/big-rock.png');
 }
 .tree {
     background-image: url('/tiles/tileset.png');
-    background-position: -640px -81px;
+    background-position: -641px -81px;
 }
 .west-wall{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -320px -320px;
+    background-position: -321px -321px;
 }
 .north-wall{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -241px -399px;
+    background-position: -241px -401px;
 }
 .east-wall{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -161px -320px;
+    background-position: -161px -321px;
 }
 .south-wall{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -240px -241px;
+    background-position: -241px -241px;
 
 }
 .transition-south{
@@ -43,65 +38,72 @@
 
 }
 .south-west-gate{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
     background-position: -320px -241px;
 }
 .south-east-gate{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
     background-position: -161px -241px;
 }
 .north-west-gate{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -321px -399px;
+    background-position: -322px -401px;
 }
 .north-east-gate{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -164px -399px;
+    background-position: -166px -401px;
 }
 .south-west-corner{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -0px -400px;
+    background-position: -1px -400px;
 }
 .south-east-corner{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -80px -400px;
+    background-position: -81px -401px;
 }
 .north-west-corner{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -0px -320px;
+    background-position: -1px -321px;
 }
 .north-east-corner{
-    background-color: #3D754C;
     background-image: url('/tiles/tileset.png');
-    background-position: -80px -320px;
+    background-position: -81px -321px;
 }
 .battle{
-    background-color: lightblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -80px -160px;
 }
 .boss1{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -0px -0px;
 }
 .boss2{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -80px -0px;
 }
 .boss3{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -160px -0px;
 }
 .boss4{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -0px -80px;
 }
 .boss5{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -80px -80px;
 }
 .boss6{
-    background-color: darkblue;
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -160px -80px;
+}
+.boss7{
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -0px -160px;
+}
+.boss9{
+    background-image: url('/tiles/bigtree-overworld.png');
+    background-position: -160px -160px;
 }
 .menu{
     position: absolute;
@@ -131,4 +133,5 @@
 .save{
     position: absolute;
     left: 50px;
+    cursor: pointer;
 }

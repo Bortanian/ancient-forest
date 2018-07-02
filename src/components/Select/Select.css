@@ -44,6 +44,7 @@
     position: absolute;
     right: 40px;
     top: 30px;
+    cursor: pointer;
 }
 .play{
     background-image: url('./play-button.png');

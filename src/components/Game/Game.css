@@ -39,4 +39,10 @@
     padding: 13px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    cursor: pointer;
+}
+.save-message{
+    position: absolute;
+    right: 80px;
+    top: 27px;
 }

@@ -9,7 +9,7 @@ class Game extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            loadingToggle: true
+            loadingToggle: true,
         }
     }
     componentDidMount() {
@@ -51,6 +51,15 @@ class Game extends Component {
                     <div className='menu-button'>
                         <div onClick={() => this.handleMenuToggle()}>MENU</div>
                     </div>
+                    <div className='save-message'>
+                        {this.props.savedMessage ?
+                            <div>
+                                <h3>GAME SAVED!</h3>
+                            </div>
+                            :
+                            <div></div>
+                        }
+                    </div>
                     <div>
                         {this.state.loadingToggle ?
                             <div className='loading'>
@@ -69,7 +78,8 @@ function mapStateToProps(state) {
     return {
         hero: state.hero,
         playing: state.playing,
-        menu: state.menu
+        menu: state.menu,
+        savedMessage: state.savedMessage,
     }
 }
 

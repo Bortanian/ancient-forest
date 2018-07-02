@@ -66,6 +66,7 @@
     height: 60px;
     width: 200px;
     padding: 22px;
+    cursor: pointer;
 }
 .run{
     background-image: url('./option-button.png');
@@ -91,6 +92,7 @@
     height: 48px;
     padding: 17px 15px;
     font-size: 12px;
+    cursor: pointer;
 }
 .ability-back{
     background-image: url('./delete.png');
@@ -101,6 +103,7 @@
     position: absolute;
     top: 30px;
     right: 55px;
+    cursor: pointer;
 }
 .enemy{
     width: 880px;
@@ -186,6 +189,11 @@ p{
     position: absolute;
     bottom: 38px;
     left: 66px;
+}
+.action-image-enemy{
+    position: absolute;
+    bottom: -26px;
+    left: -21px;
 }
 .text{
     padding: 20px;
