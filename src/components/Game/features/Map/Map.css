@@ -14,7 +14,7 @@
 }
 .west-wall{
     background-image: url('/tiles/tileset.png');
-    background-position: -321px -321px;
+    background-position: -321px -326px;
 }
 .north-wall{
     background-image: url('/tiles/tileset.png');
@@ -22,7 +22,7 @@
 }
 .east-wall{
     background-image: url('/tiles/tileset.png');
-    background-position: -161px -321px;
+    background-position: -161px -336px;
 }
 .south-wall{
     background-image: url('/tiles/tileset.png');
@@ -55,7 +55,7 @@
 }
 .south-west-corner{
     background-image: url('/tiles/tileset.png');
-    background-position: -1px -400px;
+    background-position: -1px -401px;
 }
 .south-east-corner{
     background-image: url('/tiles/tileset.png');
